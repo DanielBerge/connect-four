@@ -1,7 +1,7 @@
 # [Semesteroppgave 2: “Fire på rad”](https://retting.ii.uib.no/inf101.v18.sem2/blob/master/SEM-2.md)
 
-* [README])(README.md) – for utfylling
-* [Oppgavetekst](SEM-2.md)
+* [README](README.md) – for utfylling
+* **Oppgavetekst**
 
 ## Læringsmål
 - Å få erfaring med å ta egne designvalg, i stedet for å bare følge en oppskrift.
@@ -35,7 +35,7 @@ Sjekk ut koden fra:
 * At navn på klasser, interfaces, metoder og variabler er fornuftige
 * Fornuftige abstraksjoner og innkapsling (bruk av klasser, interface, metoder, etc.) – forklart i README
 
-Du må gjerne (!) diskutere oppgaven med andre, men dere må skrive individuell kode. Dersom du samarbeider tett med noen så beskriv det i README-filen. 
+Du må gjerne (!) diskutere oppgaven med andre, men dere må skrive individuell kode. Dersom du samarbeider tett med noen så beskriv det i README-filen. Se også om [code review under](SEM-2.md#code-review-feedback-p%C3%A5-hverandres-kode)
 
 ## Programmet
 Målet med oppgaven er å skrive et spillbart program for 1-2 spillere, av Fire på Rad. Krav til programmet ditt er at: 
@@ -58,7 +58,7 @@ Det er veldig nyttig å måtte [forklare](https://en.wikipedia.org/wiki/Rubber_d
 
 * Det er praktisk å gå gjennom ting muntlig: sitt rundt samme datamaskin, og forklar din egen kode til de andre (eller prøv å forstå og forklare noen andres kode!) – dere kan diskutere gode og dårlige løsninger, ideer til ting som kan gjøres annerledes eller forbedres osv.
 * Du kan også gi tilgang til repositoriet [slik du lærte i Lab 4](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.lab4/blob/master/LAB-4-I_GIT.md#11-tilgang), og så kan dere prøve lese (og eventuelt kjøre) hverandres kode, og f.eks. gi tilbakemeldinger gjennom *Issues*-systemet i GitLab.
-* **Viktig:** poenget med dette er å lære, og å forbedre innleveringene – for at det skal funke er det viktig å være positiv og konstruktiv når du gir tilbakemeldinger eller kommentarer (ellers er det ingen som tør å vise deg koden sin neste gang!)
+* **Viktig:** poenget med dette er *å lære*, og *å forbedre* innleveringene – for at det skal funke er det viktig å være *positiv og konstruktiv* når du gir tilbakemeldinger eller kommentarer (ellers er det ingen som tør å vise deg koden sin neste gang!)
 * Det burde passe greit å gjøre dette en gang i løpet av den første uken, og så en gang til noen dager før innlevering. 
 * Det er et eget punkt i [README-filen](README.md) som dere kan krysse av hvis dere prøver dere på en eller annen variant av “code review” – skrive gjerne også noen setninger om hva dere gjorde og hvordan det fungerte (lærte du noe? forbedret du noe?)
 
@@ -66,7 +66,7 @@ Det er veldig nyttig å måtte [forklare](https://en.wikipedia.org/wiki/Rubber_d
 
 Videre i denne teksten beskriver vi typiske deler av programmet. Dersom du vil dele programmet ditt opp på en annen måte er helt greit: men ***forklar abstraksjonene dine i README-filen, uansett hva du velger å bruke***. Det er viktig at vi skjønner hva du har tenkt, og hvis noe er rart i koden din, kan en god forklaring redde deg fra unødig trekk. Se f.eks. forklaringene du har fått på utlevert kode tidligere for eksempler.
 
-Hver del av programmet bør være så adskilt som mulig fra resten av koden. De kan f.eks. gjerne ligge i hver sine pakker, og prøv at de ikke kaller hverandre unødig mye. Les mer om [modulær](SEM-2.md#modulær) kode under [Ekstra](SEM-2.md#ekstra). 
+Hver del av programmet bør være så adskilt som mulig fra resten av koden. De kan f.eks. gjerne ligge i hver sine pakker, og prøv at de ikke kaller hverandre unødig mye. Les mer om [modulær](SEM-2.md#modulært) kode under [Ekstra](SEM-2.md#ekstra-utfordringer). 
 
 ### Kjernen av programmet 
 Programmet trenger en kjerne, som kontrollerer programflyten. Dette vil typisk være en klasse som knytter sammen de øvrige delene og som har en løkke der hver gjennomkjøring er én spillers runde. Les de neste seksjonene og kikk gjerne på koden fra Semesteroppgave 1 før du bestemmer deg for hvordan å sette opp ditt program. 
@@ -108,7 +108,7 @@ Hvis du vil sjekke om du har klart å skille koden for brukergrensesnittet klart
 ### Tips til brukergrensesnitt
 Du kan f.eks.
 * ...bruke konsoll-I/O slik som i INF100, med `Scanner` og `System.out.println()`.
-* ...kopiere grafikkbiblioteket vi har brukt i INF101, f.eks. fra [Semesteroppgave 1](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.sem1/tree/master/src/inf101/v18/gfx). Grafikken kan tegnes som tekst (slik som i semesteroppgaven, og liknende til `System.out`), eller med skilpaddegrafikk eller shapes – se f.eks. hvordan endene er tegnet i [Lab 6](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.lab6/blob/master/src/inf101/v18/pond/Duck.java).
+* ...kopiere grafikkbiblioteket vi har brukt i INF101, f.eks. fra [Semesteroppgave 1](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.sem1/tree/master/src/inf101/v18/gfx). Grafikken kan tegnes som tekst (slik som i semesteroppgaven, og liknende til `System.out`), eller med skilpaddegrafikk eller shapes – se f.eks. hvordan endene er tegnet i [Lab 6](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.lab6/blob/master/src/inf101/v18/pond/Duck.java). Se på [Main-klassen](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.sem1/blob/master/src/inf101/v18/rogue101/Main.java) for oppsett (kan gjøres mye enklere enn i Sem1), og for å se hvordan du kan motta tastetrykk.
 * ...kopiere den klikkbare grid-GUIen fra [ekstraoppgaven om lyttere](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.xtra.listeners); denne har vært brukt på tidligere INF101-obliger også.
 * ...bruke [Swing](https://docs.oracle.com/javase/tutorial/uiswing/components/index.html) eller [JavaFX](https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm) til å lage brukergrensesnitt (kan ta litt tid å sette seg inn i). Se f.eks. [JavaFX 8 GUI Tutorial](https://code.makery.ch/library/javafx-8-tutorial/)
 
