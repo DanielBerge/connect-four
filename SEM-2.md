@@ -37,13 +37,11 @@ Sjekk ut koden fra:
 
 Du må gjerne (!) diskutere oppgaven med andre, men dere må skrive individuell kode. Dersom du samarbeider tett med noen så beskriv det i README-filen. 
 
-TODO: review
-
 ## Programmet
 Målet med oppgaven er å skrive et spillbart program for 1-2 spillere, av Fire på Rad. Krav til programmet ditt er at: 
 
-* Det er spillbart, ut ifra [reglene](#reglene) til det tradisjonelle Fire på Rad. 
-* Det har et [brukergrensesnitt](#brukergrensesnitt): programmet skal kunne brukes av 1-2 "ekte" spillere, f.eks. du og gruppelederen din. For å kunne spille må kunne gi input til programmet, f.eks. ved hjelp av `Scanner`-objekt og `System.out.println`, eller ved hjelp av taster og grafikk eller et klikkbart grafisk grensesnitt. Dette er også den delen av programmet som viser hvordan brikkene er stilt opp og om noen har vunnet enda. 
+* Det er spillbart, ut ifra [reglene](SEM-2.md#reglene) til det tradisjonelle Fire på Rad. 
+* Det har et [brukergrensesnitt](SEM-2.md#brukergrensesnitt): programmet skal kunne brukes av 1-2 "ekte" spillere, f.eks. du og gruppelederen din. For å kunne spille må kunne gi input til programmet, f.eks. ved hjelp av `Scanner`-objekt og `System.out.println`, eller ved hjelp av taster og grafikk eller et klikkbart grafisk grensesnitt. Dette er også den delen av programmet som viser hvordan brikkene er stilt opp og om noen har vunnet enda. 
 * Det er spillbart for kun én spiller: det vil si at du må ha en AI-spiller. Den trenger ikke være særlig intelligent, det holder at den gjør tilfeldige gyldige trekk. 
 * Koden din viser tydelig, ved hjelp av objekt-orientering, klassenavn, interfaces, metodenavn og feltvariabler hvordan du har [abstrahert Fire på Rad-spillet](#spill-abstraksjon). Beskriv dette gjerne utfyllende i README-filen. 
 
@@ -68,7 +66,7 @@ Det er veldig nyttig å måtte [forklare](https://en.wikipedia.org/wiki/Rubber_d
 
 Videre i denne teksten beskriver vi typiske deler av programmet. Dersom du vil dele programmet ditt opp på en annen måte er helt greit: men ***forklar abstraksjonene dine i README-filen, uansett hva du velger å bruke***. Det er viktig at vi skjønner hva du har tenkt, og hvis noe er rart i koden din, kan en god forklaring redde deg fra unødig trekk. Se f.eks. forklaringene du har fått på utlevert kode tidligere for eksempler.
 
-Hver del av programmet bør være så adskilt som mulig fra resten av koden. De kan f.eks. gjerne ligge i hver sine pakker, og prøv at de ikke kaller hverandre unødig mye. Les mer om [modulær](#modulær) kode under [Ekstra](#ekstra). 
+Hver del av programmet bør være så adskilt som mulig fra resten av koden. De kan f.eks. gjerne ligge i hver sine pakker, og prøv at de ikke kaller hverandre unødig mye. Les mer om [modulær](SEM-2.md#modulær) kode under [Ekstra](SEM-2.md#ekstra). 
 
 ### Kjernen av programmet 
 Programmet trenger en kjerne, som kontrollerer programflyten. Dette vil typisk være en klasse som knytter sammen de øvrige delene og som har en løkke der hver gjennomkjøring er én spillers runde. Les de neste seksjonene og kikk gjerne på koden fra Semesteroppgave 1 før du bestemmer deg for hvordan å sette opp ditt program. 
@@ -121,7 +119,7 @@ Regler for Fire På Rad:
 * Spillere har hver sin tur til å legge ned brikker 
 * På sin tur skal spilleren velge en kolonne å slippe sin brikke ned i.
 * (Implisitt regel: en brikke som slippes ned i en kolonne faller til den lander enten oppå en annen brikke eller på bunnen av brettet. Dette er ikke beskrevet i Fire på Rad-spillregler, men er en konsekvens av designet på brettet. Dere velger selv om dere vil vise det grafisk eller ikke, men det er viktig at ikke brikken blir liggende på toppen av kolonnen som er valgt, eller at spilleren får velge x og y-koordinater å legge brikken sin på.)
-* Spillet stopper når en spiller vinner, ved å få *fire brikker ligger på rad, enten vannrett, loddrett eller diagonalt*. Dette kravet kalles ofte en [win condition](#win-condition) eller "victory condition": denne betingelsen må være oppfylt for at spillet skal være vunnet.
+* Spillet stopper når en spiller vinner, ved å få *fire brikker ligger på rad, enten vannrett, loddrett eller diagonalt*. Dette kravet kalles ofte en [win condition](SEM-2.md#win-condition) eller "victory condition": denne betingelsen må være oppfylt for at spillet skal være vunnet.
 
 
 ### Spillere
