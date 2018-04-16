@@ -184,7 +184,7 @@ Vi skriver loop og mener en eller annen form for løkke (for, while, do-while): 
 * **Iterator**. Du kan bruke iteratorer på mange måter her: du kan iterere over spillerne i runde-løkken; du kan iterere over brikker på brettet for å sjekke om noen har vunnet (det kan være litt vanskelig å implementere sånn); du kan du kan lagre tidligere spill og iterere over dem for å produsere en total poengsum; osv. 
 * **Enum?** Det er ikke sikkert du trenger enums, men de kan ofte være hendige (kanskje for brikker?)
 * **Klassediagram**. Tegn gjerne et diagram over koden din. Det er veldig nyttig for din egen del, og gjerne også for gruppelederne. 
-* ***Abstraksjon***. Se egen seksjon.
+* ***Abstraksjon***. Se seksjonen for Spill-abstraksjon.
 * ***Innkapsling*** eller encapsulation. Pass på at du bruker private modifiers der du kan, og at du gjemmer vekk så mye som mulig av den indre tilstanden til klassene (feltvariabler, nøyaktig implementasjon). Det er nyttig å bruke interfaces til dette. 
 
 
