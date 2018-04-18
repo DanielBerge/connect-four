@@ -20,7 +20,7 @@ public class TextInterface {
 	}
 	
 	private void printBoard() {
-		for(int i = 0; i<board.getWidth(); i++) {
+		for(int i = 0; i < board.getWidth(); i++) {
 			System.out.print(i+1 + " ");
 		}
 		for(int y = 0; y < board.getHeight(); y++) {

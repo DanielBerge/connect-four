@@ -42,7 +42,7 @@ public class Board implements IBoard {
 	
 	@Override
 	public void placeToken(int x, Token t) {
-		for(int y = 0; y < getHeight(); y++) {
+		for(int y = getHeight(); y >= 0; y--) {
 			if(getToken(x,y) == Token.BLANK) {
 				setToken(x,y,t);
 				return;
