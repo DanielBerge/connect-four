@@ -2,6 +2,7 @@ package interfaces;
 
 import java.util.Random;
 
+import inf101.v18.fourinarow.AI;
 import inf101.v18.fourinarow.Board;
 import inf101.v18.fourinarow.IBoard;
 import inf101.v18.fourinarow.Player;
@@ -13,6 +14,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class GUI extends Application {
@@ -26,32 +30,43 @@ public class GUI extends Application {
 	public void start(Stage primaryStage) throws Exception {	
 		//Start game scene
 		Button start = new Button("Start game");
-	    Scene scene = new Scene(start, 600, 300, Color.WHITE);
+		start.setMinSize(300, 150);
+		Button startai = new Button("Start AI game");
+		startai.setMinSize(300, 150);
+		startai.setLayoutX(300);
+		
+		Group g = new Group();
+		g.getChildren().add(start);
+		g.getChildren().add(startai);
+		
+	    Scene scene = new Scene(g, 600, 300, Color.WHITE);
 	    start.setOnAction(e -> primaryStage.setScene(startGame(primaryStage)));
+	    startai.setOnAction(e -> primaryStage.setScene(startAiGame(primaryStage)));
 		
 	
 		primaryStage.setTitle("Four in a row");
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		
 	}
 
 
 	public Scene startGame(Stage primaryStage) {
-		Rules rules = new Rules();
-		if(rules.hasWonFour(board, turn)) {
-			System.out.println(turn + "WON");
-		}
-		//Printer ut selve brettet
 		Group g = new Group();
+		Scene game = new Scene(g, 700, 700, Color.BLUE);
+		Rules rules = new Rules();
+		
+		//Printer ut selve brettet
 		printScene(g);
+		
+		if(rules.hasWonFour(board, turn)) {
+			updateText(g, turn);
+			return game;
+		}
 		//buttons
 		makeButtons(g, primaryStage);
-		
-		/////GAMEPLAY
+
 		Player red = new Player(Token.RED, "Bjarne");
 		Player yellow = new Player(Token.YELLOW, "Arne");
-		
 		
 		if(turn == null) {
 			if(r.nextInt(2) == 0) {
@@ -67,7 +82,7 @@ public class GUI extends Application {
 			turn = red.getToken();
 		}
 		
-		Scene game = new Scene(g, 700, 700, Color.BLUE);
+		updateText(g, turn);
 		return game;
 	}
 	
@@ -78,12 +93,30 @@ public class GUI extends Application {
 		//buttons
 		makeButtons(g, primaryStage);
 		
+		//////
+		Player yellow = new Player(Token.YELLOW, "Arne");
+		AI red = new AI(Token.RED);
+		
+		if(turn == null) {
+			if(r.nextInt(2) == 0) {
+				turn = red.getToken();
+			} else {
+				turn = yellow.getToken();
+			}
+		}
+		
+		if(turn == red.getToken()) {
+			turn = yellow.getToken();
+		} else {
+			turn = red.getToken();
+		}
+		
+		
 		Scene game = new Scene(g, 700, 700, Color.BLUE);
 		return game;
 	}
 	
 	public void printScene(Group g) {
-		//Group g = new Group();
 		for(int y = 0; y < board.getHeight(); y++) {
 			for(int x = 0; x < board.getWidth(); x++) {
 				if(board.getToken(x, y) == Token.BLANK) {
@@ -99,6 +132,19 @@ public class GUI extends Application {
 			}
 		}
 	}
+	
+	public void updateText(Group g, Token t) {
+		Text txt = new Text(10, 650, t + " sin tur");
+		txt.setFont(Font.font(null, FontWeight.BOLD, 32));
+		txt.setFill(Color.WHITE);
+		
+		g.getChildren().add(txt);
+	}
+	
+	public void changeTurn() {
+		
+	}
+	
 	public void makeButtons(Group g, Stage primaryStage) {
 		Button b1 = new Button();
 		b1.setMinSize(100, 700);

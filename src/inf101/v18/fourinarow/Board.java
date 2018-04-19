@@ -41,13 +41,31 @@ public class Board implements IBoard {
 	}
 	
 	@Override
-	public void placeToken(int x, Token t) {
+	public boolean placeToken(int x, Token t) {
 		for(int y = getHeight(); y >= 0; y--) {
 			if(getToken(x,y) == Token.BLANK) {
 				setToken(x,y,t);
-				return;
+				return true;
 			}
 		}
-		System.out.println("Row full");
+		return false;
+	}
+
+	@Override
+	public void set(int x, int y, Token element) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Token get(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IGrid<Token> copy() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

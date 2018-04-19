@@ -1,6 +1,8 @@
 package inf101.v18.fourinarow;
 
-public interface IBoard {
+import grid.IGrid;
+
+public interface IBoard extends IGrid<Token> {
 	/**
 	 * @return The number of rows.
 	 */
@@ -22,5 +24,11 @@ public interface IBoard {
 	 * @param t which token
 	 */
 	void setToken(int x, int y, Token t);
-	void placeToken(int x, Token t);
+	/**
+	 * 
+	 * @param x places at this x coordinate
+	 * @param t which token to place
+	 * @return if succedes or not
+	 */
+	boolean placeToken(int x, Token t);
 }
