@@ -109,6 +109,7 @@ public class GUI extends Application {
 			turn = yellow.getToken();
 		} else {
 			turn = red.getToken();
+			place(red.getMove(board), primaryStage);
 		}
 		
 		
@@ -141,9 +142,7 @@ public class GUI extends Application {
 		g.getChildren().add(txt);
 	}
 	
-	public void changeTurn() {
-		
-	}
+
 	
 	public void makeButtons(Group g, Stage primaryStage) {
 		Button b1 = new Button();
@@ -210,10 +209,12 @@ public class GUI extends Application {
 		b7.setLayoutX(600);
 		b7.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b7);
-		b7.setOnAction(e -> {
-			board.placeToken(6, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		b7.setOnAction(e -> place(6, primaryStage));
+	}
+	
+	public void place(int row, Stage primaryStage) {
+		board.placeToken(row, turn);
+		primaryStage.setScene(startGame(primaryStage));
 	}
 	
 	public static void main(String args[]){   
