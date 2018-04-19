@@ -4,8 +4,10 @@ import java.util.Random;
 
 import inf101.v18.fourinarow.AI;
 import inf101.v18.fourinarow.Board;
+import inf101.v18.fourinarow.Game;
+import inf101.v18.fourinarow.Human;
 import inf101.v18.fourinarow.IBoard;
-import inf101.v18.fourinarow.Player;
+import inf101.v18.fourinarow.AbstractPlayer;
 import inf101.v18.fourinarow.Rules;
 import inf101.v18.fourinarow.Token;
 import javafx.application.Application;
@@ -25,9 +27,16 @@ public class GUI extends Application {
 	private IBoard board = new Board(width, height);
 	private Random r = new Random();
 	private Token turn = null;
+	private Stage window;
+	private GameScene game;
+	private Group gameGroup = new Group();
+	private Text gameText = new Text();
+	AbstractPlayer red;
+	AbstractPlayer yellow;
 	
 	@Override
-	public void start(Stage primaryStage) throws Exception {	
+	public void start(Stage primaryStage) throws Exception {
+		window = primaryStage;
 		//Start game scene
 		Button start = new Button("Start game");
 		start.setMinSize(300, 150);
@@ -40,181 +49,137 @@ public class GUI extends Application {
 		g.getChildren().add(startai);
 		
 	    Scene scene = new Scene(g, 600, 300, Color.WHITE);
-	    start.setOnAction(e -> primaryStage.setScene(startGame(primaryStage)));
-	    startai.setOnAction(e -> primaryStage.setScene(startAiGame(primaryStage)));
+	    start.setOnAction(e -> window.setScene(startGame(null)));
+	    startai.setOnAction(e -> {
+	    	AI player = new AI(Token.RED);
+	    	window.setScene(startGame(player));
+	    });
 		
 	
-		primaryStage.setTitle("Four in a row");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		window.setTitle("Four in a row");
+		window.setScene(scene);
+		window.show();
 	}
 
 
-	public Scene startGame(Stage primaryStage) {
-		Group g = new Group();
-		Scene game = new Scene(g, 700, 700, Color.BLUE);
+	public Scene startGame(AI ai) {
+		if(ai == null) {
+			red = new Human(Token.RED);
+			yellow = new Human(Token.YELLOW);
+		} else {
+			red = new Human(Token.RED);
+			yellow = new AI(Token.YELLOW);
+		}
+		
+		if(r.nextInt(2) == 0) {
+			turn = red.getToken();
+		} else {
+			turn = yellow.getToken();
+		}
+		
+		this.game = new GameScene(gameGroup, 700, 700, Color.BLUE, board);
+		game.printScene(gameGroup);
+		makeButtons();
+		turn();
+		gameText = new Text(10, 650, turn + " sin tur");
+		gameText.setFont(Font.font(null, FontWeight.BOLD, 32));
+		gameText.setFill(Color.WHITE);
+		gameGroup.getChildren().add(gameText);
+		
+		return game;
+	}
+	
+	public boolean turn() {
 		Rules rules = new Rules();
-		
-		//Printer ut selve brettet
-		printScene(g);
-		
 		if(rules.hasWonFour(board, turn)) {
-			updateText(g, turn);
-			return game;
+			updateText(turn + " VANT!!!!!!!!");
+			return false;
 		}
-		//buttons
-		makeButtons(g, primaryStage);
-
-		Player red = new Player(Token.RED, "Bjarne");
-		Player yellow = new Player(Token.YELLOW, "Arne");
 		
-		if(turn == null) {
-			if(r.nextInt(2) == 0) {
-				turn = red.getToken();
-			} else {
-				turn = yellow.getToken();
-			}
-		}
 		
 		if(turn == red.getToken()) {
 			turn = yellow.getToken();
-		} else {
-			turn = red.getToken();
-		}
-		
-		updateText(g, turn);
-		return game;
-	}
-	
-	public Scene startAiGame(Stage primaryStage) {
-		//Printer ut selve brettet
-		Group g = new Group();
-		printScene(g);
-		//buttons
-		makeButtons(g, primaryStage);
-		
-		//////
-		Player yellow = new Player(Token.YELLOW, "Arne");
-		AI red = new AI(Token.RED);
-		
-		if(turn == null) {
-			if(r.nextInt(2) == 0) {
-				turn = red.getToken();
-			} else {
-				turn = yellow.getToken();
-			}
-		}
-		
-		if(turn == red.getToken()) {
-			turn = yellow.getToken();
-		} else {
-			turn = red.getToken();
-			place(red.getMove(board), primaryStage);
-		}
-		
-		
-		Scene game = new Scene(g, 700, 700, Color.BLUE);
-		return game;
-	}
-	
-	public void printScene(Group g) {
-		for(int y = 0; y < board.getHeight(); y++) {
-			for(int x = 0; x < board.getWidth(); x++) {
-				if(board.getToken(x, y) == Token.BLANK) {
-					Circle c = new Circle(x*100+50, y*100+50, 40, Color.WHITE);
-					g.getChildren().add(c);
-				} else if(board.getToken(x, y) == Token.YELLOW) {
-					Circle c = new Circle(x*100+50, y*100+50, 40, Color.YELLOW);
-					g.getChildren().add(c);
-				} else if(board.getToken(x, y) == Token.RED) {
-					Circle c = new Circle(x*100+50, y*100+50, 40, Color.RED);
-					g.getChildren().add(c);
+			if(yellow.isAi()) {
+				int i = yellow.getMove(board);
+				while(!board.placeToken(i, turn)) {
+					i = yellow.getMove(board);
 				}
+				turn();
 			}
+		} else {
+			turn = red.getToken();
+		}
+		return true;
+	}
+	
+	private void clicked(int i) {
+		if(board.placeToken(i, turn)) {
+			game.printScene(gameGroup);
+			if(turn()) {
+				updateText(turn + " sin tur");
+				makeButtons();
+			} else {
+				board.freeze??
+			}
+		} else {
+			game.printScene(gameGroup);
+			makeButtons();
+			updateText("Raden er full");
 		}
 	}
-	
-	public void updateText(Group g, Token t) {
-		Text txt = new Text(10, 650, t + " sin tur");
-		txt.setFont(Font.font(null, FontWeight.BOLD, 32));
-		txt.setFill(Color.WHITE);
-		
-		g.getChildren().add(txt);
-	}
-	
-
-	
-	public void makeButtons(Group g, Stage primaryStage) {
+	public void makeButtons() {
 		Button b1 = new Button();
 		b1.setMinSize(100, 700);
 		b1.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b1);
-		b1.setOnAction(e -> {
-			board.placeToken(0, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b1);
+		b1.setOnAction(e -> clicked(0));
 		
 		Button b2 = new Button();
 		b2.setMinSize(100, 700);
 		b2.setLayoutX(100);
 		b2.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b2);
-		b2.setOnAction(e -> {
-			board.placeToken(1, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b2);
+		b2.setOnAction(e -> clicked(1));
 		
 		Button b3 = new Button();
 		b3.setMinSize(100, 700);
 		b3.setLayoutX(200);
 		b3.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b3);
-		b3.setOnAction(e -> {
-			board.placeToken(2, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b3);
+		b3.setOnAction(e -> clicked(2));
 		
 		Button b4 = new Button();
 		b4.setMinSize(100, 700);
 		b4.setLayoutX(300);
 		b4.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b4);
-		b4.setOnAction(e -> {
-			board.placeToken(3, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b4);
+		b4.setOnAction(e -> clicked(3));
 		
 		Button b5 = new Button();
 		b5.setMinSize(100, 700);
 		b5.setLayoutX(400);
 		b5.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b5);
-		b5.setOnAction(e -> {
-			board.placeToken(4, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b5);
+		b5.setOnAction(e -> clicked(4));
 		
 		Button b6 = new Button();
 		b6.setMinSize(100, 700);
 		b6.setLayoutX(500);
 		b6.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b6);
-		b6.setOnAction(e -> {
-			board.placeToken(5, turn);
-			primaryStage.setScene(startGame(primaryStage));
-		});
+		gameGroup.getChildren().add(b6);
+		b6.setOnAction(e -> clicked(5));
 		
 		Button b7 = new Button();
 		b7.setMinSize(100, 700);
 		b7.setLayoutX(600);
 		b7.setStyle("-fx-background-color: transparent;");
-		g.getChildren().add(b7);
-		b7.setOnAction(e -> place(6, primaryStage));
+		gameGroup.getChildren().add(b7);
+		b7.setOnAction(e -> clicked(6));
+		
 	}
 	
-	public void place(int row, Stage primaryStage) {
-		board.placeToken(row, turn);
-		primaryStage.setScene(startGame(primaryStage));
+	public void updateText(String s) {
+		gameText.setText(s);
 	}
 	
 	public static void main(String args[]){   

@@ -2,18 +2,21 @@ package inf101.v18.fourinarow;
 
 import java.util.Random;
 
-public class AI {
-	Random r = new Random();
-	private Token t;
+public class AI extends AbstractPlayer {
+	private Random r = new Random();
 	
 	public AI(Token t) {
-		this.t = t;
+		super(t);
 	}
+	
+	@Override
 	public int getMove(IBoard board) {
 		return r.nextInt(board.getWidth());
 	}
 	
-	public Token getToken() {
-		return t;
+	@Override
+	public boolean isAi() {
+		return true;
 	}
+	
 }

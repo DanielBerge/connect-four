@@ -31,4 +31,5 @@ public interface IBoard extends IGrid<Token> {
 	 * @return if succedes or not
 	 */
 	boolean placeToken(int x, Token t);
+
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import inf101.v18.fourinarow.AI;
 import inf101.v18.fourinarow.IBoard;
-import inf101.v18.fourinarow.Player;
+import inf101.v18.fourinarow.AbstractPlayer;
 import inf101.v18.fourinarow.Rules;
 import inf101.v18.fourinarow.Token;
 
@@ -38,11 +38,11 @@ public class TextInterface {
 	}
 	
 	private void startGame() {
-		Player red = new Player(Token.RED, "Bjarne");
-		Player yellow = new Player(Token.YELLOW, "Arne");
+		AbstractPlayer red = new AbstractPlayer(Token.RED, "Bjarne");
+		AbstractPlayer yellow = new AbstractPlayer(Token.YELLOW, "Arne");
 		Rules rules = new Rules();
 		
-		Player turn = red;
+		AbstractPlayer turn = red;
 		printBoard();
 		while(!won) {
 			int tall = inn.nextInt();
@@ -62,7 +62,7 @@ public class TextInterface {
 	}
 	
 	private void startAiGame() {
-		Player red = new Player(Token.RED, "Bjarne");
+		AbstractPlayer red = new AbstractPlayer(Token.RED, "Bjarne");
 		AI yellow = new AI(Token.YELLOW);
 		Rules rules = new Rules();
 		Token turn = red.getToken();
