@@ -1,6 +1,6 @@
 package interfaces;
 
-import inf101.v18.fourinarow.IBoard;
+import board.IBoard;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Paint;

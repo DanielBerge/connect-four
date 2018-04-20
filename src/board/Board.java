@@ -1,6 +1,7 @@
-package inf101.v18.fourinarow;
+package board;
 
 import grid.MyGrid;
+import inf101.v18.extras.Token;
 
 public class Board extends MyGrid<Token> implements IBoard {
 	

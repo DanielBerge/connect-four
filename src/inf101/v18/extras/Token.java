@@ -1,4 +1,4 @@
-package inf101.v18.fourinarow;
+package inf101.v18.extras;
 
 import javafx.scene.paint.Color;
 

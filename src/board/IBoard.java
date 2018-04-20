@@ -1,6 +1,7 @@
-package inf101.v18.fourinarow;
+package board;
 
 import grid.IGrid;
+import inf101.v18.extras.Token;
 
 public interface IBoard extends IGrid<Token> {
 	/**

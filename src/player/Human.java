@@ -1,4 +1,6 @@
-package inf101.v18.fourinarow;
+package player;
+
+import inf101.v18.extras.Token;
 
 public class Human extends AbstractPlayer {
 

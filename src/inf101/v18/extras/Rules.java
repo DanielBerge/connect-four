@@ -1,4 +1,6 @@
-package inf101.v18.fourinarow;
+package inf101.v18.extras;
+
+import board.IBoard;
 
 public class Rules {
 	public static boolean hasWonFour(IBoard board, Token t) {

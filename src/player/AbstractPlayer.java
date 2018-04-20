@@ -1,4 +1,7 @@
-package inf101.v18.fourinarow;
+package player;
+
+import board.IBoard;
+import inf101.v18.extras.Token;
 
 public abstract class AbstractPlayer {
 	protected Token t;

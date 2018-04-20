@@ -2,24 +2,22 @@ package interfaces;
 
 import java.util.Random;
 
-import inf101.v18.fourinarow.AI;
-import inf101.v18.fourinarow.Board;
-import inf101.v18.fourinarow.Game;
-import inf101.v18.fourinarow.Human;
-import inf101.v18.fourinarow.IBoard;
-import inf101.v18.fourinarow.AbstractPlayer;
-import inf101.v18.fourinarow.Rules;
-import inf101.v18.fourinarow.Token;
+import board.Board;
+import board.IBoard;
+import inf101.v18.extras.Rules;
+import inf101.v18.extras.Token;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import player.AI;
+import player.AbstractPlayer;
+import player.Human;
 
 public class GUI extends Application {
 	private static int width = 7;

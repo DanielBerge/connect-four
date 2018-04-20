@@ -1,6 +1,9 @@
-package inf101.v18.fourinarow;
+package player;
 
 import java.util.Random;
+
+import board.IBoard;
+import inf101.v18.extras.Token;
 
 public class AI extends AbstractPlayer {
 	private Random r = new Random();
