@@ -17,14 +17,15 @@ public class TextInterface {
 	public TextInterface(IBoard board) {
 		this.board = board;
 		//startGame();
-		startAiGame();
+		printBoard();
 	}
 	
 	private void printBoard() {
+
 		for(int i = 0; i < board.getWidth(); i++) {
 			System.out.print(i+1 + " ");
 		}
-		for(int y = 0; y < board.getHeight(); y++) {
+		for(int y = 0; y < board.getHeight()+1; y++) {
 			System.out.println();
 			for(int x = 0; x < board.getWidth(); x++) {
 				if(board.getToken(x, y) == Token.BLANK) {
@@ -55,38 +56,6 @@ public class TextInterface {
 				turn = yellow;
 			} else {
 				turn = red;
-			}
-			
-			printBoard();
-		}
-	}
-	
-	private void startAiGame() {
-		AbstractPlayer red = new Human(Token.RED);
-		AI yellow = new AI(Token.YELLOW);
-		Token turn = red.getToken();
-		
-		printBoard();
-		while(!won) {
-			int tall = 0;
-			if(turn == red.getToken()) {
-				tall = inn.nextInt();
-				System.out.println(tall);
-			} else if (turn == yellow.getToken()) {
-				tall = yellow.getMove(board);
-				System.out.println(tall);
-			}
-			board.placeToken(tall-1, turn);
-
-			if(Rules.hasWonFour(board, turn)) {
-				System.out.println(turn.toString() + " HAS WON!!!!!!!!!!!!!!!!!!!");
-				won = true;
-			}
-			
-			if(turn == red.getToken()) {
-				turn = yellow.getToken();
-			} else {
-				turn = red.getToken();
 			}
 			
 			printBoard();

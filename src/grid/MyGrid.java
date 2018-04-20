@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class MyGrid<T> implements IGrid<T> {
 	private List<T> cells;
-	private int height;
-	private int width;
+	protected int height;
+	protected int width;
 	/**
 	 * 
 	 * Construct a grid with the given dimensions.
