@@ -16,8 +16,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import player.AI;
-import player.AbstractPlayer;
 import player.Human;
+import player.IPlayer;
 
 public class GUI extends Application {
 	private static int width = 7;
@@ -29,8 +29,8 @@ public class GUI extends Application {
 	private GameScene game;
 	private Group gameGroup = new Group();
 	private Text gameText = new Text();
-	AbstractPlayer red;
-	AbstractPlayer yellow;
+	IPlayer red;
+	IPlayer yellow;
 	private boolean won = false;
 	
 	@Override
