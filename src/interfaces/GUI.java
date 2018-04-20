@@ -37,31 +37,30 @@ public class GUI extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		Group g = new Group();
+	    Scene scene = new Scene(g, 600, 300, Color.WHITE);
+		
 		window = primaryStage;
-		//Start game scene
-		Button start = new Button("Start game");
+		Button start = new Button("Human VS Human");
 		start.setMinSize(300, 150);
-		Button startai = new Button("Start AI game");
+		
+		Button startai = new Button("Human VS AI");
 		startai.setMinSize(300, 150);
 		startai.setLayoutX(300);
 		
-		Group g = new Group();
 		g.getChildren().add(start);
 		g.getChildren().add(startai);
 		
-	    Scene scene = new Scene(g, 600, 300, Color.WHITE);
 	    start.setOnAction(e -> window.setScene(startGame(null)));
 	    startai.setOnAction(e -> {
 	    	AI player = new AI(Token.RED);
 	    	window.setScene(startGame(player));
 	    });
 		
-	
 		window.setTitle("Four in a row");
 		window.setScene(scene);
 		window.show();
 	}
-
 
 	public Scene startGame(AI ai) {
 		if(ai == null) {
@@ -82,7 +81,7 @@ public class GUI extends Application {
 		game.printScene(gameGroup);
 		makeButtons();
 		turn();
-		gameText = new Text(10, 650, turn + " sin tur");
+		gameText = new Text(10, 650, turn.getName() + " sin tur");
 		gameText.setFont(Font.font(null, FontWeight.BOLD, 32));
 		gameText.setFill(Color.WHITE);
 		gameGroup.getChildren().add(gameText);
@@ -92,11 +91,10 @@ public class GUI extends Application {
 	
 	public void turn() {
 		if(Rules.hasWonFour(board, turn)) {
-			updateText(turn + " VANT!!!!!!!!");
+			updateText(turn.getName() + " VANT!!!!!!!!");
 			won = true;
+			return;
 		}
-		
-		
 		if(turn == red.getToken()) {
 			turn = yellow.getToken();
 			if(yellow.isAi()) {
@@ -109,19 +107,19 @@ public class GUI extends Application {
 		} else {
 			turn = red.getToken();
 		}
+		updateText(turn.getName() + " sin tur");
 	}
 	
 	private void clicked(int i) {
 		if(!won) {
 			if(board.placeToken(i, turn)) {
 				game.printScene(gameGroup);
-				updateText(turn + " sin tur");
 				makeButtons();
 				turn();
 			} else {
 				game.printScene(gameGroup);
 				makeButtons();
-				updateText("Raden er full");
+				updateText("Raden er full, fortsatt " + turn.getName().toLowerCase() + " sin tur");
 			}
 		} else {
 			game.printScene(gameGroup);
@@ -175,7 +173,6 @@ public class GUI extends Application {
 		b7.setStyle("-fx-background-color: transparent;");
 		gameGroup.getChildren().add(b7);
 		b7.setOnAction(e -> clicked(6));
-		
 	}
 	
 	public void updateText(String s) {
