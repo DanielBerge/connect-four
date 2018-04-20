@@ -51,6 +51,11 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 ## Funksjonalitet, bugs
 *(hva virker / virker ikke)*
 
+###Bugs
+* Når man starter AI, er det ikke alltid ai fungerer første runde
+* Når AI vinner, fungerer ikke WIN message
+
+
 ## Evt. erfaring fra code review
 *(lærte du noe av å gå gjennom din eller andres kode?)*
 
