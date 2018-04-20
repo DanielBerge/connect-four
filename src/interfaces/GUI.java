@@ -33,6 +33,7 @@ public class GUI extends Application {
 	private Text gameText = new Text();
 	AbstractPlayer red;
 	AbstractPlayer yellow;
+	private boolean won = false;
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -89,11 +90,10 @@ public class GUI extends Application {
 		return game;
 	}
 	
-	public boolean turn() {
-		Rules rules = new Rules();
-		if(rules.hasWonFour(board, turn)) {
+	public void turn() {
+		if(Rules.hasWonFour(board, turn)) {
 			updateText(turn + " VANT!!!!!!!!");
-			return false;
+			won = true;
 		}
 		
 		
@@ -109,22 +109,22 @@ public class GUI extends Application {
 		} else {
 			turn = red.getToken();
 		}
-		return true;
 	}
 	
 	private void clicked(int i) {
-		if(board.placeToken(i, turn)) {
-			game.printScene(gameGroup);
-			if(turn()) {
+		if(!won) {
+			if(board.placeToken(i, turn)) {
+				game.printScene(gameGroup);
 				updateText(turn + " sin tur");
 				makeButtons();
+				turn();
 			} else {
-				board.freeze??
+				game.printScene(gameGroup);
+				makeButtons();
+				updateText("Raden er full");
 			}
 		} else {
 			game.printScene(gameGroup);
-			makeButtons();
-			updateText("Raden er full");
 		}
 	}
 	public void makeButtons() {

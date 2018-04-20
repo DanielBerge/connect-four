@@ -5,6 +5,7 @@ import java.util.Scanner;
 import inf101.v18.fourinarow.AI;
 import inf101.v18.fourinarow.IBoard;
 import inf101.v18.fourinarow.AbstractPlayer;
+import inf101.v18.fourinarow.Human;
 import inf101.v18.fourinarow.Rules;
 import inf101.v18.fourinarow.Token;
 
@@ -38,9 +39,8 @@ public class TextInterface {
 	}
 	
 	private void startGame() {
-		AbstractPlayer red = new AbstractPlayer(Token.RED, "Bjarne");
-		AbstractPlayer yellow = new AbstractPlayer(Token.YELLOW, "Arne");
-		Rules rules = new Rules();
+		AbstractPlayer red = new Human(Token.RED);
+		AbstractPlayer yellow = new Human(Token.YELLOW);
 		
 		AbstractPlayer turn = red;
 		printBoard();
@@ -48,8 +48,8 @@ public class TextInterface {
 			int tall = inn.nextInt();
 			System.out.println(tall);
 			board.placeToken(tall-1, turn.getToken());
-			if(rules.hasWonFour(board, turn.getToken())) {
-				System.out.println(turn.getName() + " HAS WON!!!!!!!!!!!!!!!!!!!");
+			if(Rules.hasWonFour(board, turn.getToken())) {
+				System.out.println(turn.getToken() + " HAS WON!!!!!!!!!!!!!!!!!!!");
 			}
 			if(turn == red) {
 				turn = yellow;
@@ -62,9 +62,8 @@ public class TextInterface {
 	}
 	
 	private void startAiGame() {
-		AbstractPlayer red = new AbstractPlayer(Token.RED, "Bjarne");
+		AbstractPlayer red = new Human(Token.RED);
 		AI yellow = new AI(Token.YELLOW);
-		Rules rules = new Rules();
 		Token turn = red.getToken();
 		
 		printBoard();
@@ -79,7 +78,7 @@ public class TextInterface {
 			}
 			board.placeToken(tall-1, turn);
 
-			if(rules.hasWonFour(board, turn)) {
+			if(Rules.hasWonFour(board, turn)) {
 				System.out.println(turn.toString() + " HAS WON!!!!!!!!!!!!!!!!!!!");
 				won = true;
 			}
