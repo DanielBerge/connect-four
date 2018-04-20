@@ -4,11 +4,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import inf101.v18.extras.Token;
+import player.AI;
+import player.Human;
+import player.IPlayer;
+
 class PlayerTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	void getTokenTest() {
+		IPlayer player = new Human(Token.RED);
+		assertEquals(Token.RED, player.getToken());
+		assertFalse(player.isAi());
+	}
+	
+	@Test
+	void AITest() {
+		IPlayer ai = new AI(Token.YELLOW);
+		assertTrue(ai.isAi());
 	}
 
 }
