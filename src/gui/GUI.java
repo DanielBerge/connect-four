@@ -1,4 +1,4 @@
-package interfaces;
+package gui;
 
 import java.util.Random;
 
@@ -22,15 +22,15 @@ import player.IPlayer;
 public class GUI extends Application {
 	private static int width = 7;
 	private static int height = 6;
-	private IBoard board = new Board(width, height);
+	private IBoard<Token> board = new Board<Token>(width, height, Token.BLANK);
 	private Random r = new Random();
 	private Token turn = null;
 	private Stage window;
 	private GameScene game;
 	private Group gameGroup = new Group();
 	private Text gameText = new Text();
-	IPlayer red;
-	IPlayer yellow;
+	IPlayer<Token> red;
+	IPlayer<Token> yellow;
 	private boolean won = false;
 	
 	@Override
@@ -51,7 +51,7 @@ public class GUI extends Application {
 		
 	    start.setOnAction(e -> window.setScene(startGame(null)));
 	    startai.setOnAction(e -> {
-	    	AI player = new AI(Token.RED);
+	    	AI<Token> player = new AI<Token>(Token.RED);
 	    	window.setScene(startGame(player));
 	    });
 		
@@ -60,13 +60,13 @@ public class GUI extends Application {
 		window.show();
 	}
 
-	public Scene startGame(AI ai) {
+	public Scene startGame(AI<Token> ai) {
 		if(ai == null) {
-			red = new Human(Token.RED);
-			yellow = new Human(Token.YELLOW);
+			red = new Human<Token>(Token.RED);
+			yellow = new Human<Token>(Token.YELLOW);
 		} else {
-			red = new Human(Token.RED);
-			yellow = new AI(Token.YELLOW);
+			red = new Human<Token>(Token.RED);
+			yellow = new AI<Token>(Token.YELLOW);
 		}
 		
 		if(r.nextInt(2) == 0) {

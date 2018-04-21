@@ -13,14 +13,14 @@ class PlayerTest {
 
 	@Test
 	void getTokenTest() {
-		IPlayer player = new Human(Token.RED);
+		IPlayer<Token> player = new Human<Token>(Token.RED);
 		assertEquals(Token.RED, player.getToken());
 		assertFalse(player.isAi());
 	}
 	
 	@Test
 	void AITest() {
-		IPlayer ai = new AI(Token.YELLOW);
+		IPlayer<Token> ai = new AI<Token>(Token.YELLOW);
 		assertTrue(ai.isAi());
 	}
 

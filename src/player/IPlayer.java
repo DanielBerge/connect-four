@@ -1,14 +1,13 @@
 package player;
 
 import board.IBoard;
-import inf101.v18.extras.Token;
 
-public interface IPlayer {
+public interface IPlayer<T> {
 	/**
 	 * 
 	 * @return token of the player
 	 */
-	Token getToken();
+	T getToken();
 	/**
 	 * 
 	 * @return true if AI, else false
@@ -20,6 +19,6 @@ public interface IPlayer {
 	 * @return x coordinate to place token
 	 */
 
-	int getMove(IBoard board);
+	int getMove(IBoard<T> board);
 
 }

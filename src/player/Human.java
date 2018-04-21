@@ -1,10 +1,8 @@
 package player;
 
-import inf101.v18.extras.Token;
+public class Human<T> extends AbstractPlayer<T> {
 
-public class Human extends AbstractPlayer {
-
-	public Human(Token t) {
+	public Human(T t) {
 		super(t);
 	}
 

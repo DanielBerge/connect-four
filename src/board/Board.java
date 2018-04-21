@@ -1,16 +1,17 @@
 package board;
 
 import grid.MyGrid;
-import inf101.v18.extras.Token;
 
-public class Board extends MyGrid<Token> implements IBoard {
+public class Board<T> extends MyGrid<T> implements IBoard<T> {
+	private T blankElem;
 	
-	public Board(int width, int height) {
-		super(width, height, Token.BLANK);
+	public Board(int width, int height, T blankElem) {
+		super(width, height, blankElem);
+		this.blankElem = blankElem;
 	}
 	
 	@Override
-	public Token getToken(int x, int y) {
+	public T getToken(int x, int y) {
 		if(x < 0 || x >= width)
 			return null;
 		if(y < 0 || y >= height)
@@ -19,10 +20,10 @@ public class Board extends MyGrid<Token> implements IBoard {
 	}
 
 	@Override
-	public boolean placeToken(int x, Token t) {
+	public boolean placeToken(int x, T elem) {
 		for(int y = getHeight(); y >= 0; y--) {
-			if(getToken(x,y) == Token.BLANK) {
-				set(x,y,t);
+			if(getToken(x,y) == blankElem) {
+				set(x,y,elem);
 				return true;
 			}
 		}

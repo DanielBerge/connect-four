@@ -1,9 +1,8 @@
 package board;
 
 import grid.IGrid;
-import inf101.v18.extras.Token;
 
-public interface IBoard extends IGrid<Token> {
+public interface IBoard<T> extends IGrid<T> {
 	/**
 	 * @return The number of rows.
 	 */
@@ -16,13 +15,12 @@ public interface IBoard extends IGrid<Token> {
 	 * @return The token in given x,y coordinates.
 	 * @return null if outside map
 	 */
-	Token getToken(int x, int y);
+	T getToken(int x, int y);
 	/**
 	 * 
 	 * @param x places at this x coordinate
 	 * @param t which token to place
 	 * @return if succeeds or not
 	 */
-	boolean placeToken(int x, Token t);
-
+	boolean placeToken(int x, T t);
 }

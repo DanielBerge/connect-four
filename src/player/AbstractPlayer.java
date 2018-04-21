@@ -1,17 +1,16 @@
 package player;
 
 import board.IBoard;
-import inf101.v18.extras.Token;
 
-public abstract class AbstractPlayer implements IPlayer {
-	protected Token t;
+public abstract class AbstractPlayer<T> implements IPlayer<T> {
+	protected T t;
 	
-	public AbstractPlayer(Token t) {
+	public AbstractPlayer(T t) {
 		this.t = t;
 	}
 	
 	@Override
-	public Token getToken() {
+	public T getToken() {
 		return t;
 	}
 	
@@ -21,7 +20,7 @@ public abstract class AbstractPlayer implements IPlayer {
 	}
 
 	@Override
-	public int getMove(IBoard board) {
+	public int getMove(IBoard<T> board) {
 		return 0;
 	}
 

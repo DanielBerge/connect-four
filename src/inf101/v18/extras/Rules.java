@@ -3,7 +3,7 @@ package inf101.v18.extras;
 import board.IBoard;
 
 public class Rules {
-	public static boolean hasWonFour(IBoard board, Token t) {
+	public static boolean hasWonFour(IBoard<Token> board, Token t) {
 		for(int x = 0; x < board.getWidth(); x++) {
 			for(int y = 0; y < board.getHeight(); y++) {
 				if((board.getToken(x, y) == t)

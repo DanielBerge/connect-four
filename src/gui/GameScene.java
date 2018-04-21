@@ -1,6 +1,7 @@
-package interfaces;
+package gui;
 
 import board.IBoard;
+import inf101.v18.extras.Token;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Paint;
@@ -8,9 +9,9 @@ import javafx.scene.shape.Circle;
 
 
 public class GameScene extends Scene {
-	IBoard board;
+	IBoard<Token> board;
 
-	public GameScene(Group g, double x, double y, Paint color, IBoard board) {
+	public GameScene(Group g, double x, double y, Paint color, IBoard<Token> board) {
 		super(g, x, y, color);
 		this.board = board;
 		printScene(g);
