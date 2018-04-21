@@ -17,7 +17,7 @@ class PlayerTest {
 		assertEquals(Token.RED, player.getToken());
 		assertFalse(player.isAi());
 	}
-	
+
 	@Test
 	void AITest() {
 		IPlayer<Token> ai = new AI<>(Token.YELLOW);

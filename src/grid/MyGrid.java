@@ -12,6 +12,7 @@ public class MyGrid<T> implements IGrid<T> {
 	private List<T> cells;
 	protected int height;
 	protected int width;
+
 	/**
 	 * 
 	 * Construct a grid with the given dimensions.
@@ -22,7 +23,7 @@ public class MyGrid<T> implements IGrid<T> {
 	 *            What the cells should initially hold (possibly null)
 	 */
 	public MyGrid(int width, int height, T initElement) {
-		if(width <= 0 || height <= 0)
+		if (width <= 0 || height <= 0)
 			throw new IllegalArgumentException();
 
 		this.height = height;
@@ -33,35 +34,31 @@ public class MyGrid<T> implements IGrid<T> {
 		}
 	}
 
-	
 	@Override
 	public int getHeight() {
 		return height;
-		}
-
+	}
 
 	@Override
 	public int getWidth() {
 		return width;
 	}
 
-
 	@Override
 	public void set(int x, int y, T elem) {
-		if(x < 0 || x >= width)
+		if (x < 0 || x >= width)
 			throw new IndexOutOfBoundsException();
-		if(y < 0 || y >= height)
+		if (y < 0 || y >= height)
 			throw new IndexOutOfBoundsException();
 
 		cells.set(x + (y * width), elem);
 	}
 
-
 	@Override
 	public T get(int x, int y) {
-		if(x < 0 || x >= width)
+		if (x < 0 || x >= width)
 			return null;
-		if(y < 0 || y >= height)
+		if (y < 0 || y >= height)
 			return null;
 
 		return cells.get(x + (y * width));

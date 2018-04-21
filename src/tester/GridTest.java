@@ -2,11 +2,8 @@ package tester;
 
 import static org.junit.Assert.*;
 
-
 import java.util.Random;
-
 import org.junit.Test;
-
 import grid.IGrid;
 import grid.MyGrid;
 
@@ -21,11 +18,11 @@ public class GridTest {
 		assertEquals(11, grid.getWidth());
 		assertEquals(17, grid.getHeight());
 	}
-	
+
 	@Test
 	public void outOfBoundsTest1() {
 		IGrid<Token> grid = new MyGrid<>(10, 10, Token.BLANK);
-		
+
 		try {
 			grid.set(11, -4, Token.BLANK);
 			fail("Should throw exception");
@@ -38,11 +35,12 @@ public class GridTest {
 		} catch (IndexOutOfBoundsException e) {
 			;
 		}
-		
+
 	}
+
 	/**
-	 * Tests that trying to access outside of the dimensions of the grid throws
-	 * an IndexOutOfBoundsException.
+	 * Tests that trying to access outside of the dimensions of the grid throws an
+	 * IndexOutOfBoundsException.
 	 */
 	@Test
 	public void outOfBoundsTest2() {
