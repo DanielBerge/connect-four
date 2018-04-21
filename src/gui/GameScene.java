@@ -2,6 +2,7 @@ package gui;
 
 import board.IBoard;
 import inf101.v18.extras.Token;
+import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,13 +17,14 @@ public class GameScene extends Scene {
 	private IBoard<Token> board;
 	private Text txt;
 	private Group g;
+	Circle c;
 
 	public GameScene(Group g, double x, double y, Paint color, IBoard<Token> board) {
 		super(g, x, y, color);
 		this.board = board;
 		this.g = g;
+		this.setCursor(Cursor.CROSSHAIR);
 		printScene();
-		
 		txt = new Text(10, 650, GUI.turn.getName() + "'s turn");
 		txt.setFont(Font.font(null, FontWeight.BOLD, 32));
 		txt.setFill(Color.WHITE);
@@ -43,12 +45,15 @@ public class GameScene extends Scene {
 		txt.setText(s);
 	}
 	
+	
 	private void makeButtons() {
 		Button b1 = new Button();
 		b1.setMinSize(100, 700);
 		b1.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b1);
 		b1.setOnAction(e -> GUI.clicked(0));
+		b1.setOnMouseEntered(e -> makeCircle(0));
+		b1.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b2 = new Button();
 		b2.setMinSize(100, 700);
@@ -56,6 +61,8 @@ public class GameScene extends Scene {
 		b2.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b2);
 		b2.setOnAction(e -> GUI.clicked(1));
+		b2.setOnMouseEntered(e -> makeCircle(1));
+		b2.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b3 = new Button();
 		b3.setMinSize(100, 700);
@@ -63,6 +70,8 @@ public class GameScene extends Scene {
 		b3.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b3);
 		b3.setOnAction(e -> GUI.clicked(2));
+		b3.setOnMouseEntered(e -> makeCircle(2));
+		b3.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b4 = new Button();
 		b4.setMinSize(100, 700);
@@ -70,6 +79,8 @@ public class GameScene extends Scene {
 		b4.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b4);
 		b4.setOnAction(e -> GUI.clicked(3));
+		b4.setOnMouseEntered(e -> makeCircle(3));
+		b4.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b5 = new Button();
 		b5.setMinSize(100, 700);
@@ -77,6 +88,8 @@ public class GameScene extends Scene {
 		b5.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b5);
 		b5.setOnAction(e -> GUI.clicked(4));
+		b5.setOnMouseEntered(e -> makeCircle(4));
+		b5.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b6 = new Button();
 		b6.setMinSize(100, 700);
@@ -84,6 +97,8 @@ public class GameScene extends Scene {
 		b6.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b6);
 		b6.setOnAction(e -> GUI.clicked(5));
+		b6.setOnMouseEntered(e -> makeCircle(5));
+		b6.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
 
 		Button b7 = new Button();
 		b7.setMinSize(100, 700);
@@ -91,5 +106,12 @@ public class GameScene extends Scene {
 		b7.setStyle("-fx-background-color: transparent;");
 		g.getChildren().add(b7);
 		b7.setOnAction(e -> GUI.clicked(6));
+		b7.setOnMouseEntered(e -> makeCircle(6));
+		b7.setOnMouseExited(e -> c.setFill(Color.TRANSPARENT));
+	}
+	
+	private void makeCircle(int i) {
+		c = new Circle(i * 100 + 50, 0, 40, GUI.turn.getColor());
+		g.getChildren().add(c);
 	}
 }
