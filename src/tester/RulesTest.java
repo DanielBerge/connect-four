@@ -14,7 +14,7 @@ class RulesTest {
 	//Vertikal
 	@Test
 	void RuleTest() {
-		IBoard<Token> board = new Board<Token>(4,4, Token.BLANK);
+		IBoard<Token> board = new Board<>(4,4, Token.BLANK);
 		for(int i = 0; i < 4; i++)
 			board.placeToken(0, Token.RED);
 		assertTrue(Rules.hasWonFour(board, Token.RED));
@@ -23,7 +23,7 @@ class RulesTest {
 	//Horisontal
 	@Test
 	void RuleTest2() {
-		IBoard<Token> board = new Board<Token>(4,4, Token.BLANK);
+		IBoard<Token> board = new Board<>(4,4, Token.BLANK);
 		for(int i = 0; i < 4; i++)
 			board.placeToken(i, Token.YELLOW);
 		assertTrue(Rules.hasWonFour(board, Token.YELLOW));
@@ -32,7 +32,7 @@ class RulesTest {
 	//Diagonal
 	@Test
 	void RuleTest3() {
-		IBoard<Token> board = new Board<Token>(4,4, Token.BLANK);
+		IBoard<Token> board = new Board<>(4,4, Token.BLANK);
 		for(int i = 0; i < 4; i++)
 			board.set(i, i, Token.RED);
 		assertTrue(Rules.hasWonFour(board, Token.RED));
@@ -41,7 +41,7 @@ class RulesTest {
 	//Diagonal
 	@Test
 	void RuleTest4() {
-		IBoard<Token> board = new Board<Token>(4,4, Token.BLANK);
+		IBoard<Token> board = new Board<>(4,4, Token.BLANK);
 		for(int i = 0; i < 4; i++)
 			board.set(i, 3-i, Token.YELLOW);
 		assertTrue(Rules.hasWonFour(board, Token.YELLOW));

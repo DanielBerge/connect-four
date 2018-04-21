@@ -22,7 +22,7 @@ import player.IPlayer;
 public class GUI extends Application {
 	private static int width = 7;
 	private static int height = 6;
-	private IBoard<Token> board = new Board<Token>(width, height, Token.BLANK);
+	private IBoard<Token> board = new Board<>(width, height, Token.BLANK);
 	private Random r = new Random();
 	private Token turn = null;
 	private Stage window;
@@ -51,7 +51,7 @@ public class GUI extends Application {
 		
 	    start.setOnAction(e -> window.setScene(startGame(null)));
 	    startai.setOnAction(e -> {
-	    	AI<Token> player = new AI<Token>(Token.RED);
+	    	AI<Token> player = new AI<>(Token.RED);
 	    	window.setScene(startGame(player));
 	    });
 		
@@ -62,11 +62,11 @@ public class GUI extends Application {
 
 	public Scene startGame(AI<Token> ai) {
 		if(ai == null) {
-			red = new Human<Token>(Token.RED);
-			yellow = new Human<Token>(Token.YELLOW);
+			red = new Human<>(Token.RED);
+			yellow = new Human<>(Token.YELLOW);
 		} else {
-			red = new Human<Token>(Token.RED);
-			yellow = new AI<Token>(Token.YELLOW);
+			red = new Human<>(Token.RED);
+			yellow = new AI<>(Token.YELLOW);
 		}
 		
 		if(r.nextInt(2) == 0) {

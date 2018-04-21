@@ -17,14 +17,14 @@ public class GridTest {
 
 	@Test
 	public void constructTest1() {
-		IGrid<Token> grid = new MyGrid<Token>(11, 17, Token.BLANK);
+		IGrid<Token> grid = new MyGrid<>(11, 17, Token.BLANK);
 		assertEquals(11, grid.getWidth());
 		assertEquals(17, grid.getHeight());
 	}
 	
 	@Test
 	public void outOfBoundsTest1() {
-		IGrid<Token> grid = new MyGrid<Token>(10, 10, Token.BLANK);
+		IGrid<Token> grid = new MyGrid<>(10, 10, Token.BLANK);
 		
 		try {
 			grid.set(11, -4, Token.BLANK);
@@ -46,7 +46,7 @@ public class GridTest {
 	 */
 	@Test
 	public void outOfBoundsTest2() {
-		IGrid<Token> grid = new MyGrid<Token>(10, 10, Token.BLANK);
+		IGrid<Token> grid = new MyGrid<>(10, 10, Token.BLANK);
 
 		try {
 			grid.set(11, 0, Token.BLANK);
@@ -64,7 +64,7 @@ public class GridTest {
 
 	@Test
 	public void setGetTest1() {
-		IGrid<Token> grid = new MyGrid<Token>(100, 100, Token.BLANK);
+		IGrid<Token> grid = new MyGrid<>(100, 100, Token.BLANK);
 
 		for (int x = 0; x < 100; x++)
 			for (int y = 0; y < 100; y++) {
@@ -75,7 +75,7 @@ public class GridTest {
 
 	@Test
 	public void setGetTest2() {
-		IGrid<Token> grid = new MyGrid<Token>(100, 100, Token.BLANK);
+		IGrid<Token> grid = new MyGrid<>(100, 100, Token.BLANK);
 
 		for (int x = 0; x < 100; x++) {
 			for (int y = 0; y < 100; y++) {
@@ -88,23 +88,5 @@ public class GridTest {
 				grid.set(x, y, Token.RED);
 				assertEquals(Token.RED, grid.get(x, y));
 			}
-	}
-
-	@Test
-	public void copyTest() {
-		IGrid<Token> grid = new MyGrid<Token>(100, 100, Token.BLANK);
-
-		for (int x = 0; x < 100; x++) {
-			for (int y = 0; y < 100; y++) {
-				grid.set(x, y, Token.RED);
-			}
-		}
-
-		IGrid<Token> newGrid = grid.copy();
-		for (int x = 0; x < 100; x++) {
-			for (int y = 0; y < 100; y++) {
-				assertEquals(grid.get(x, y), newGrid.get(x, y));
-			}
-		}
 	}
 }

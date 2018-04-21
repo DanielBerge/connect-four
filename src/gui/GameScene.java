@@ -20,7 +20,7 @@ public class GameScene extends Scene {
 	public void printScene(Group g) {
 		for(int y = 0; y < board.getHeight(); y++) {
 			for(int x = 0; x < board.getWidth(); x++) {
-					Circle c = new Circle(x*100+50, y*100+50, 40, board.getToken(x, y).getColor());
+					Circle c = new Circle(x*100+50, y*100+50, 40, board.get(x, y).getColor());
 					g.getChildren().add(c);
 			}
 		}

@@ -34,14 +34,9 @@ public interface IGrid<T> {
 	 * 
 	 * @param x The column of the cell to get the contents of.
 	 * @param y The row of the cell to get contents of.
+	 * 
+	 * @return The token in given x,y coordinates.
+	 * @return null if outside grid
 	 */
 	T get(int x, int y);
-
-	/**
-	 * Make a copy
-	 *
-	 * @return A fresh copy of the grid, with the same elements
-	 */
-	IGrid<T> copy();
-
 }

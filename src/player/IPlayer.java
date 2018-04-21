@@ -14,6 +14,7 @@ public interface IPlayer<T> {
 	 */
 	boolean isAi();
 	/**
+	 * Gets a random move
 	 * 
 	 * @param board
 	 * @return x coordinate to place token

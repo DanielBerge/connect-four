@@ -4,21 +4,9 @@ import grid.IGrid;
 
 public interface IBoard<T> extends IGrid<T> {
 	/**
-	 * @return The number of rows.
-	 */
-	int getHeight();
-	/**
-	 * @return The number of columns.
-	 */
-	int getWidth();
-	/**
-	 * @return The token in given x,y coordinates.
-	 * @return null if outside map
-	 */
-	T getToken(int x, int y);
-	/**
+	 * Place an element at the bottom of the grid
 	 * 
-	 * @param x places at this x coordinate
+	 * @param x place element at this x coordinate
 	 * @param t which token to place
 	 * @return if succeeds or not
 	 */
