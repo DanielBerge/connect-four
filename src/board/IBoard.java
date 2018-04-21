@@ -11,4 +11,12 @@ public interface IBoard<T> extends IGrid<T> {
 	 * @return if succeeds or not
 	 */
 	boolean placeToken(int x, T t);
+	/**
+	 * Iterate trough every element in grid, 
+	 * if defaultelement exists return false, 
+	 * else return true
+	 * 
+	 * @return if board is full or not
+	 */
+	boolean isFull();
 }

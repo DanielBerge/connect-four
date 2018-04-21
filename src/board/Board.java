@@ -20,5 +20,16 @@ public class Board<T> extends MyGrid<T> implements IBoard<T> {
 		}
 		return false;
 	}
+	
+	@Override
+	public boolean isFull() {
+		for(int x = 0; x < this.getWidth(); x++) {
+			for(int y = 0; y < this.getHeight(); y++) {
+				if(this.get(x, y) == defaultElem)
+					return false;
+			}
+		}
+		return true;
+	}
 
 }

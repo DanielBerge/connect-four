@@ -51,4 +51,15 @@ class BoardTest {
 		IBoard<Token> board = new Board<>(2,2, Token.BLANK);
 		assertNull(board.get(-3, 6));
 	}
+	
+	@Test
+	void boardFullTest() {
+		IBoard<Token> board = new Board<>(7,6, Token.BLANK);
+		for(int x = 0; x < board.getWidth(); x++) {
+			for(int y = 0; y < board.getHeight(); y++) {
+				board.set(x, y, Token.RED);
+			}
+		}
+		assertTrue(board.isFull());
+	}
 }

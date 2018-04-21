@@ -3,7 +3,7 @@ package inf101.v18.extras;
 import javafx.scene.paint.Color;
 
 public class Token {
-	public static final Token BLANK = new Token(Color.WHITE, "Blank");
+	public static final Token BLANK = new Token(Color.BLUE.darker(), "Blank");
 	public static final Token RED = new Token(Color.RED, "Red");
 	public static final Token YELLOW = new Token(Color.YELLOW, "Yellow");
 
