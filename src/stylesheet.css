@@ -1,0 +1,29 @@
+.button {
+    -fx-background-color: #0040FF;
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: #81DAF5;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Roboto";
+    -fx-text-fill: linear-gradient(#81DAF5, #81DAF5);
+    -fx-font-size: 30px;
+    -fx-padding: 10 20 10 20;
+}
+
+.button:hover {
+	-fx-background-color: #2E64FE;
+    -fx-color: white;
+}
+
+.txt {
+	-fx-font-family: "Roboto";
+    -fx-font-size: 50px;
+    -fx-color: white;
+}
+
+#pane{
+    -fx-background-repeat: stretch;   
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}

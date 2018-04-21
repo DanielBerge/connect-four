@@ -29,7 +29,7 @@ public class GUI extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		StartScene startScene = new StartScene(new Group(), 300, 150, Color.WHITE, primaryStage);
+		StartScene startScene = new StartScene(new Group(), 400, 800, Color.BLUE, primaryStage);
 		primaryStage.setTitle("Four in a row");
 		primaryStage.setScene(startScene);
 		primaryStage.show();
