@@ -52,8 +52,7 @@ De fleste av klassene er generiske så gjenbruk av klassene er lett. Rules klass
 *(hva virker / virker ikke)*
 
 #### Bugs
-* Når man starter AI, er det ikke alltid ai fungerer første runde
-* Når AI vinner, fungerer ikke WIN message
+*"It's not a bug, it's a feature"
 
 
 ## Evt. erfaring fra code review

@@ -5,8 +5,6 @@ import java.util.Random;
 import board.Board;
 import board.IBoard;
 import gui.GUI;
-import player.AI;
-import player.Human;
 import player.IPlayer;
 
 public class TurnHandler {
@@ -14,75 +12,85 @@ public class TurnHandler {
 	private int height = 6;
 	private IPlayer<Token> red;
 	private IPlayer<Token> yellow;
-	private Token turn = null;
+	private IPlayer<Token> turn = null;
 	private Random r = new Random();
 	private boolean won = false;
 	private IBoard<Token> board = new Board<>(width, height, Token.BLANK);
-	
-	public TurnHandler(AI<Token> ai) {
-		if (ai == null) {
-			red = new Human<>(Token.RED);
-			yellow = new Human<>(Token.YELLOW);
-		} else {
-			red = new Human<>(Token.RED);
-			yellow = ai;
-		}
 
+	public TurnHandler(IPlayer<Token> p1, IPlayer<Token> p2) {
+		red = p1;
+		yellow = p2;
 		if (r.nextInt(2) == 0) {
-			turn = red.getToken();
+			turn = red;
 		} else {
-			turn = yellow.getToken();
-			if(yellow.isAi()) {
-				turn = red.getToken();
+			turn = yellow;
+			if (yellow.isAi()) {
+				int i = yellow.getMove(board);
+				while (!board.placeToken(i, turn.getToken())) {
+					i = yellow.getMove(board);
+				}
+				turn = red;
 			}
 		}
 	}
-	
+
 	public void turn() {
-		if (Rules.hasWonFour(board, turn)) {
-			GUI.getGameScene().updateText(turn.getName() + " WON!");
-			won = true;
+		if (checkWin())
 			return;
-		}
-		if(board.isFull()) {
+		if (board.isFull()) {
 			GUI.getGameScene().updateText("Board full, it's a tie");
 			won = true;
 			return;
 		}
-		
-		if (turn == red.getToken()) {
-			turn = yellow.getToken();
-			if (yellow.isAi()) {
-				int i = yellow.getMove(board);
-				while (!board.placeToken(i, turn)) {
-					i = yellow.getMove(board);
-				}
-				turn();
-			}
-		} else {
-			turn = red.getToken();
+
+		if (turn == yellow) {
+			turn = red;
+		} else if (turn == red) {
+			turn = yellow;
 		}
-		GUI.getGameScene().updateText(turn.getName() + "'s turn");
+
+		if (yellow.isAi()) {
+			int i = yellow.getMove(board);
+			while (!board.placeToken(i, turn.getToken())) {
+				i = yellow.getMove(board);
+			}
+			if (checkWin())
+				return;
+			turn = red;
+		}
+
+		GUI.getGameScene().updateText(turn.getToken().getName() + "'s turn");
+	}
+
+	private boolean checkWin() {
+		if (Rules.hasWonFour(board, turn.getToken())) {
+			GUI.getGameScene().updateText(turn.getToken().getName() + " WON!");
+			GUI.getGameScene().printScene();
+			won = true;
+			return true;
+		}
+		return false;
 	}
 
 	public void clicked(int i) {
 		if (!won) {
-			if (board.placeToken(i, turn)) {
+			if (board.placeToken(i, turn.getToken())) {
 				GUI.getGameScene().printScene();
 				turn();
 			} else {
 				GUI.getGameScene().printScene();
-				GUI.getGameScene().updateText("Column full, still " + turn.getName().toLowerCase() + "'s turn");
+				GUI.getGameScene()
+						.updateText("Column full, still " + turn.getToken().getName().toLowerCase() + "'s turn");
 			}
 		} else {
 			GUI.getGameScene().printScene();
 		}
 	}
-	
-	public Token getTurn() {
+
+	public IPlayer<Token> getTurn() {
 		return turn;
 	}
-	
+
 	public IBoard<Token> getBoard() {
 		return board;
 	}

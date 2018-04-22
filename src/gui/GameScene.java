@@ -25,7 +25,7 @@ public class GameScene extends Scene {
 		this.g = g;
 		this.setCursor(Cursor.CROSSHAIR);
 		printScene();
-		txt = new Text(10, 650, GUI.getHandler().getTurn().getName() + "'s turn");
+		txt = new Text(10, 650, GUI.getHandler().getTurn().getToken().getName() + "'s turn");
 		txt.setFont(Font.font(null, FontWeight.BOLD, 32));
 		txt.setFill(Color.WHITE);
 		g.getChildren().add(txt);
@@ -111,7 +111,7 @@ public class GameScene extends Scene {
 	}
 	
 	private void makeCircle(int i) {
-		c = new Circle(i * 100 + 50, 0, 40, GUI.getHandler().getTurn().getColor());
+		c = new Circle(i * 100 + 50, 0, 40, GUI.getHandler().getTurn().getToken().getColor());
 		g.getChildren().add(c);
 	}
 }

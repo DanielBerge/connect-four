@@ -11,6 +11,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import player.AI;
+import player.Human;
+import player.IPlayer;
 
 public class StartScene extends Scene {
 	private Button start;
@@ -20,10 +22,13 @@ public class StartScene extends Scene {
 		super(g, x, x, color);
 		this.getStylesheets().addAll("stylesheet.css");
 		makeInstances(g);
-		start.setOnAction(e -> primaryStage.setScene(GUI.startGame(null)));
+		IPlayer<Token> h1 = new Human<>(Token.RED);
+		IPlayer<Token> h2 = new Human<>(Token.YELLOW);
+		IPlayer<Token> ai1 = new AI<>(Token.YELLOW);
+		
+		start.setOnAction(e -> primaryStage.setScene(GUI.startGame(h1, h2)));
 		startai.setOnAction(e -> {
-			AI<Token> player = new AI<>(Token.YELLOW);
-			primaryStage.setScene(GUI.startGame(player));
+			primaryStage.setScene(GUI.startGame(h1, ai1));
 		});
 	}
 	

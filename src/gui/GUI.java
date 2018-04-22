@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import player.AI;
+import player.IPlayer;
 
 public class GUI extends Application {
 	private static GameScene game;
@@ -24,8 +24,8 @@ public class GUI extends Application {
 		primaryStage.show();
 	}
 
-	protected static Scene startGame(AI<Token> ai) {
-		handler = new TurnHandler(ai);
+	protected static Scene startGame(IPlayer<Token> p1, IPlayer<Token> p2) {
+		handler = new TurnHandler(p1, p2);
 		game = new GameScene(gameGroup, 700, 675, Color.BLUE, handler.getBoard());
 
 		handler.turn();
