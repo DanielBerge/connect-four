@@ -52,7 +52,7 @@ De fleste av klassene er generiske så gjenbruk av klassene er lett. Rules klass
 *(hva virker / virker ikke)*
 
 #### Bugs
-*"It's not a bug, it's a feature"
+* "It's not a bug, it's a feature"
 
 
 ## Evt. erfaring fra code review
