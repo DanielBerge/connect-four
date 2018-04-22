@@ -22,7 +22,7 @@ public class StartScene extends Scene {
 		makeInstances(g);
 		start.setOnAction(e -> primaryStage.setScene(GUI.startGame(null)));
 		startai.setOnAction(e -> {
-			AI<Token> player = new AI<>(Token.RED);
+			AI<Token> player = new AI<>(Token.YELLOW);
 			primaryStage.setScene(GUI.startGame(player));
 		});
 	}

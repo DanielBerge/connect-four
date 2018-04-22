@@ -1,11 +1,7 @@
 package gui;
 
-import java.util.Random;
-
-import board.Board;
-import board.IBoard;
-import game.Rules;
 import game.Token;
+import game.TurnHandler;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -13,20 +9,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import player.AI;
-import player.Human;
-import player.IPlayer;
 
 public class GUI extends Application {
-	private static int width = 7;
-	private static int height = 6;
-	private static IBoard<Token> board = new Board<>(width, height, Token.BLANK);
-	private static Random r = new Random();
-	protected static Token turn = null;
 	private static GameScene game;
 	private static Group gameGroup = new Group();
-	private static IPlayer<Token> red;
-	private static IPlayer<Token> yellow;
-	private static boolean won = false;
+	private static TurnHandler handler;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -38,64 +25,19 @@ public class GUI extends Application {
 	}
 
 	protected static Scene startGame(AI<Token> ai) {
-		if (ai == null) {
-			red = new Human<>(Token.RED);
-			yellow = new Human<>(Token.YELLOW);
-		} else {
-			red = new Human<>(Token.RED);
-			yellow = new AI<>(Token.YELLOW);
-		}
+		handler = new TurnHandler(ai);
+		game = new GameScene(gameGroup, 700, 675, Color.BLUE, handler.getBoard());
 
-		if (r.nextInt(2) == 0) {
-			turn = red.getToken();
-		} else {
-			turn = yellow.getToken();
-		}
-
-		game = new GameScene(gameGroup, 700, 675, Color.BLUE, board);
-		turn();
+		handler.turn();
 		return game;
 	}
-
-	private static void turn() {
-		if (Rules.hasWonFour(board, turn)) {
-			game.updateText(turn.getName() + " WON!");
-			won = true;
-			return;
-		}
-		if(board.isFull()) {
-			game.updateText("Board full, it's a tie");
-			won = true;
-			return;
-		}
-		
-		if (turn == red.getToken()) {
-			turn = yellow.getToken();
-			if (yellow.isAi()) {
-				int i = yellow.getMove(board);
-				while (!board.placeToken(i, turn)) {
-					i = yellow.getMove(board);
-				}
-				turn();
-			}
-		} else {
-			turn = red.getToken();
-		}
-		game.updateText(turn.getName() + "'s turn");
+	
+	public static GameScene getGameScene() {
+		return game;
 	}
-
-	protected static void clicked(int i) {
-		if (!won) {
-			if (board.placeToken(i, turn)) {
-				game.printScene();
-				turn();
-			} else {
-				game.printScene();
-				game.updateText("Column full, still " + turn.getName().toLowerCase() + "'s turn");
-			}
-		} else {
-			game.printScene();
-		}
+	
+	public static TurnHandler getHandler() {
+		return handler;
 	}
 
 	public static void main(String args[]) {
