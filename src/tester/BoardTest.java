@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import board.Board;
 import board.IBoard;
-import inf101.v18.extras.Token;
+import game.Token;
 
 class BoardTest {
 

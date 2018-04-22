@@ -4,13 +4,14 @@ import java.util.Random;
 
 import board.Board;
 import board.IBoard;
-import inf101.v18.extras.Rules;
-import inf101.v18.extras.Token;
+import game.Rules;
+import game.Token;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import player.AI;
 import player.Human;
 import player.IPlayer;
@@ -31,6 +32,7 @@ public class GUI extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		StartScene startScene = new StartScene(new Group(), 400, 800, Color.BLUE, primaryStage);
 		primaryStage.setTitle("Four in a row");
+		primaryStage.initStyle(StageStyle.UTILITY);
 		primaryStage.setScene(startScene);
 		primaryStage.show();
 	}

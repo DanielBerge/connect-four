@@ -1,4 +1,4 @@
-package inf101.v18.extras;
+package game;
 
 import javafx.scene.paint.Color;
 

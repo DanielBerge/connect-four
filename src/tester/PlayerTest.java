@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import inf101.v18.extras.Token;
+import game.Token;
 import player.AI;
 import player.Human;
 import player.IPlayer;

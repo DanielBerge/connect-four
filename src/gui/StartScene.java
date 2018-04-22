@@ -1,6 +1,6 @@
 package gui;
 
-import inf101.v18.extras.Token;
+import game.Token;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -33,18 +33,18 @@ public class StartScene extends Scene {
 		txt.setFont(Font.font("Roboto", FontWeight.BOLD, 32));
 		txt.setFill(Color.ALICEBLUE);
 		txt.getStyleClass().add("txt");
-		txt.setLayoutX(60);
+		txt.setLayoutX(47);
 		txt.setLayoutY(50);
 		
 		start = new Button("Human VS Human");
-		start.setMinSize(300, 150);
+		start.setMinSize(300, 100);
 		start.setLayoutX(50);
-		start.setLayoutY(75);
+		start.setLayoutY(100);
 		start.setFocusTraversable(false);
 
 
 		startai = new Button("Human VS AI");
-		startai.setMinSize(300, 150);
+		startai.setMinSize(300, 100);
 		startai.setLayoutX(50);
 		startai.setLayoutY(230);
 		startai.setFocusTraversable(false);

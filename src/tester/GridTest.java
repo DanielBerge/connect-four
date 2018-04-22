@@ -4,10 +4,10 @@ import static org.junit.Assert.*;
 
 import java.util.Random;
 import org.junit.Test;
+
+import game.Token;
 import grid.IGrid;
 import grid.MyGrid;
-
-import inf101.v18.extras.Token;
 
 public class GridTest {
 	Random random = new Random();

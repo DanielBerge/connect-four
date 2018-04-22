@@ -6,8 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import board.Board;
 import board.IBoard;
-import inf101.v18.extras.Rules;
-import inf101.v18.extras.Token;
+import game.Rules;
+import game.Token;
 
 class RulesTest {
 

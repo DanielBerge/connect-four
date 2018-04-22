@@ -1,7 +1,7 @@
 package gui;
 
 import board.IBoard;
-import inf101.v18.extras.Token;
+import game.Token;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
 import javafx.scene.Scene;
