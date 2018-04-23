@@ -19,4 +19,9 @@ public interface IBoard<T> extends IGrid<T> {
 	 * @return if board is full or not
 	 */
 	boolean isFull();
+	/**
+	 * 
+	 * @return default element of board
+	 */
+	T getDefaultElem();
 }

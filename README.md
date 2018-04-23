@@ -40,7 +40,9 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 ### Bruk av abstraksjon
 *(hvordan du har valgt objekter/klasser for å representere ting i spillet)*
 
-De fleste av klassene er generiske så gjenbruk av klassene er lett. Rules klassen er ikke generisk, fordi den inneholder static metoder.
+De fleste av klassene er generiske så gjenbruk av klassene er lett. 
+Rules klassen er ikke generisk, fordi den inneholder static metoder.
+TurnHandler klassen er heller ikke generisk, fordi den bruker metoder fra Token, kunne gjort det på en annen måte, men frister ikke.
 
 ### Erfaring – hvilke valg viste seg å være gode / dårlige?
 *(designerfaringer – er det noe du ville gjort annerledes?)*

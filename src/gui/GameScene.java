@@ -17,7 +17,7 @@ public class GameScene extends Scene {
 	private IBoard<Token> board;
 	private Text txt;
 	private Group g;
-	Circle c;
+	private Circle c;
 
 	public GameScene(Group g, double x, double y, Paint color, IBoard<Token> board) {
 		super(g, x, y, color);

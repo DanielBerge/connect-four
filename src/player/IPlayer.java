@@ -17,9 +17,10 @@ public interface IPlayer<T> {
 	 * Gets a random move
 	 * 
 	 * @param board
+	 * @param element if ai
+	 * @param enemy element
 	 * @return x coordinate to place token
 	 */
-
-	int getMove(IBoard<T> board);
+	int getMove(IBoard<T> board, T elem);
 
 }

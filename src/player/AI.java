@@ -11,7 +11,7 @@ public class AI<T> extends AbstractPlayer<T> {
 	}
 	
 	@Override
-	public int getMove(IBoard<T> board) {
+	public int getMove(IBoard<T> board, T elem) {
 		return r.nextInt(board.getWidth());
 	}
 	

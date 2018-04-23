@@ -31,5 +31,10 @@ public class Board<T> extends MyGrid<T> implements IBoard<T> {
 		}
 		return true;
 	}
+	
+	@Override
+	public T getDefaultElem() {
+		return defaultElem;
+	}
 
 }

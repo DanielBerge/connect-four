@@ -25,16 +25,17 @@ public class TurnHandler {
 		} else {
 			turn = yellow;
 			if (yellow.isAi()) {
-				int i = yellow.getMove(board);
+				int i = yellow.getMove(board, yellow.getToken());
 				while (!board.placeToken(i, turn.getToken())) {
-					i = yellow.getMove(board);
+					i = yellow.getMove(board, yellow.getToken());
 				}
-				turn = red;
 			}
+			turn = red;
 		}
 	}
 
 	public void turn() {
+		GUI.getGameScene().printScene();
 		if (checkWin())
 			return;
 		if (board.isFull()) {
@@ -50,12 +51,13 @@ public class TurnHandler {
 		}
 
 		if (yellow.isAi()) {
-			int i = yellow.getMove(board);
+			int i = yellow.getMove(board, yellow.getToken());
 			while (!board.placeToken(i, turn.getToken())) {
-				i = yellow.getMove(board);
+				i = yellow.getMove(board, yellow.getToken());
 			}
 			if (checkWin())
 				return;
+			GUI.getGameScene().printScene();
 			turn = red;
 		}
 

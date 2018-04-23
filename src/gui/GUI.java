@@ -27,8 +27,6 @@ public class GUI extends Application {
 	protected static Scene startGame(IPlayer<Token> p1, IPlayer<Token> p2) {
 		handler = new TurnHandler(p1, p2);
 		game = new GameScene(gameGroup, 700, 675, Color.BLUE, handler.getBoard());
-
-		handler.turn();
 		return game;
 	}
 	
