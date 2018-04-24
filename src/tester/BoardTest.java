@@ -1,5 +1,7 @@
 package tester;
 
+import static org.junit.Assert.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -7,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import board.Board;
 import board.IBoard;
 import game.Token;
+
 
 class BoardTest {
 
@@ -61,5 +64,19 @@ class BoardTest {
 			}
 		}
 		assertTrue(board.isFull());
+	}
+	
+	@Test
+	public void copyTest() {
+		IBoard<Token> board = new Board<>(7, 6, Token.BLANK);
+
+		board.set(4, 4, Token.RED);
+
+		IBoard<Token> newBoard = board.copy();
+		for (int x = 0; x < 100; x++) {
+			for (int y = 0; y < 100; y++) {
+				assertEquals(board.get(x, y), newBoard.get(x, y));
+			}
+		}
 	}
 }

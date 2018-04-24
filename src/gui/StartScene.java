@@ -31,7 +31,10 @@ public class StartScene extends Scene {
 			primaryStage.setScene(GUI.startGame(h1, ai1));
 		});
 	}
-	
+	/**
+	 * 
+	 * @param g group to add the instances
+	 */
 	private void makeInstances(Group g) {
 		g.setId("pane");
 		Text txt = new Text("Four in a row");

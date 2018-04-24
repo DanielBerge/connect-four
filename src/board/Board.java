@@ -36,5 +36,14 @@ public class Board<T> extends MyGrid<T> implements IBoard<T> {
 	public T getDefaultElem() {
 		return defaultElem;
 	}
+	
+	@Override
+	public IBoard<T> copy() {
+		Board<T> newGrid = new Board<>(getWidth(), getHeight(), getDefaultElem());
+		for (int x = 0; x < width; x++)
+			for(int y = 0; y < height; y++)
+				newGrid.set(x,  y,  get(x, y));
+		return newGrid;
+	}
 
 }

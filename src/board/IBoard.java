@@ -24,4 +24,5 @@ public interface IBoard<T> extends IGrid<T> {
 	 * @return default element of board
 	 */
 	T getDefaultElem();
+	IBoard<T> copy();
 }

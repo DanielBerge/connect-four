@@ -30,8 +30,12 @@ public class GameScene extends Scene {
 		txt.setFill(Color.WHITE);
 		g.getChildren().add(txt);
 	}
-
+	/**
+	 * Fjerner alle objects som ligger på scene, 
+	 * før den printer ut grafikken og lager buttons på nytt.
+	 */
 	public void printScene() {
+		g.getChildren().removeAll(); 
 		for (int y = 0; y < board.getHeight(); y++) {
 			for (int x = 0; x < board.getWidth(); x++) {
 				Circle c = new Circle(x * 100 + 50, y * 100 + 50, 40, board.get(x, y).getColor());
@@ -45,7 +49,9 @@ public class GameScene extends Scene {
 		txt.setText(s);
 	}
 	
-	
+	/**
+	 * Lager buttons over alle kolonnene
+	 */
 	private void makeButtons() {
 		Button b1 = new Button();
 		b1.setMinSize(100, 700);

@@ -20,7 +20,7 @@ public abstract class AbstractPlayer<T> implements IPlayer<T> {
 	}
 
 	@Override
-	public int getMove(IBoard<T> board, T elem) {
+	public int getMove(IBoard<T> board) {
 		return 0;
 	}
 

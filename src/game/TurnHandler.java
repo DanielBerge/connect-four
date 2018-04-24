@@ -25,9 +25,9 @@ public class TurnHandler {
 		} else {
 			turn = yellow;
 			if (yellow.isAi()) {
-				int i = yellow.getMove(board, yellow.getToken());
+				int i = yellow.getMove(board);
 				while (!board.placeToken(i, turn.getToken())) {
-					i = yellow.getMove(board, yellow.getToken());
+					i = yellow.getMove(board);
 				}
 			}
 			turn = red;
@@ -51,9 +51,9 @@ public class TurnHandler {
 		}
 
 		if (yellow.isAi()) {
-			int i = yellow.getMove(board, yellow.getToken());
+			int i = yellow.getMove(board);
 			while (!board.placeToken(i, turn.getToken())) {
-				i = yellow.getMove(board, yellow.getToken());
+				i = yellow.getMove(board);
 			}
 			if (checkWin())
 				return;
@@ -65,7 +65,8 @@ public class TurnHandler {
 	}
 
 	private boolean checkWin() {
-		if (Rules.hasWonFour(board, turn.getToken())) {
+		Rules<Token> rule = new Rules<>();
+		if (rule.hasWonFour(board, turn.getToken())) {
 			GUI.getGameScene().updateText(turn.getToken().getName() + " WON!");
 			GUI.getGameScene().printScene();
 			won = true;

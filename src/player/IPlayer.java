@@ -14,13 +14,11 @@ public interface IPlayer<T> {
 	 */
 	boolean isAi();
 	/**
-	 * Gets a random move
+	 * Calculates a move
 	 * 
 	 * @param board
-	 * @param element if ai
-	 * @param enemy element
 	 * @return x coordinate to place token
 	 */
-	int getMove(IBoard<T> board, T elem);
+	int getMove(IBoard<T> board);
 
 }

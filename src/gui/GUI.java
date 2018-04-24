@@ -14,7 +14,9 @@ public class GUI extends Application {
 	private static GameScene game;
 	private static Group gameGroup = new Group();
 	private static TurnHandler handler;
-
+	/**
+	 * Setter opp selve vinduet
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		StartScene startScene = new StartScene(new Group(), 400, 800, Color.BLUE, primaryStage);
@@ -23,21 +25,34 @@ public class GUI extends Application {
 		primaryStage.setScene(startScene);
 		primaryStage.show();
 	}
-
+	/**
+	 * 
+	 * @param p1
+	 * @param p2
+	 * @return Scenen spillet skal spilles på
+	 */
 	protected static Scene startGame(IPlayer<Token> p1, IPlayer<Token> p2) {
 		handler = new TurnHandler(p1, p2);
 		game = new GameScene(gameGroup, 700, 675, Color.BLUE, handler.getBoard());
 		return game;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static GameScene getGameScene() {
 		return game;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public static TurnHandler getHandler() {
 		return handler;
 	}
-
+	
 	public static void main(String args[]) {
 		launch(args);
 	}

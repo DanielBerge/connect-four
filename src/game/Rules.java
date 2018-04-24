@@ -2,8 +2,14 @@ package game;
 
 import board.IBoard;
 
-public class Rules {
-	public static boolean hasWonFour(IBoard<Token> board, Token t) {
+public class Rules<T> {
+	/**
+	 * 
+	 * @param board
+	 * @param t
+	 * @return
+	 */
+	public boolean hasWonFour(IBoard<T> board, Token t) {
 		for(int x = 0; x < board.getWidth(); x++) {
 			for(int y = 0; y < board.getHeight(); y++) {
 				if((board.get(x, y) == t)

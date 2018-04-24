@@ -44,6 +44,8 @@ De fleste av klassene er generiske så gjenbruk av klassene er lett.
 Rules klassen er ikke generisk, fordi den inneholder static metoder.
 TurnHandler klassen er heller ikke generisk, fordi den bruker metoder fra Token, kunne gjort det på en annen måte, men frister ikke.
 
+Selv om det er litt teit at AI har en T som extends Token, så gjør jeg dette så AbstractPlayer fortsatt kan være generisk.
+
 ### Erfaring – hvilke valg viste seg å være gode / dårlige?
 *(designerfaringer – er det noe du ville gjort annerledes?)*
 
