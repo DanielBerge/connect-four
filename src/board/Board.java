@@ -4,7 +4,13 @@ import grid.MyGrid;
 
 public class Board<T> extends MyGrid<T> implements IBoard<T> {
 	private T defaultElem;
-
+	/**
+	 * Construct a board with the given dimensions.
+	 * 
+	 * @param width
+	 * @param height
+	 * @param defaultElem what the board should initially hold
+	 */
 	public Board(int width, int height, T defaultElem) {
 		super(width, height, defaultElem);
 		this.defaultElem = defaultElem;
@@ -26,6 +32,17 @@ public class Board<T> extends MyGrid<T> implements IBoard<T> {
 		for(int x = 0; x < this.getWidth(); x++) {
 			for(int y = 0; y < this.getHeight(); y++) {
 				if(this.get(x, y) == defaultElem)
+					return false;
+			}
+		}
+		return true;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		for(int x = 0; x < this.getWidth(); x++) {
+			for(int y = 0; y < this.getHeight(); y++) {
+				if(this.get(x, y) != defaultElem)
 					return false;
 			}
 		}

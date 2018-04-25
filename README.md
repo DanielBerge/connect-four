@@ -37,11 +37,13 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 ## Designvalg
 *(hvordan du har valgt å løse oppgaven)*
 
+Lager ikke tester for GameScene, StartScene og GUI, fordi dette er 
+for det meste grafikk, som er bedre å teste visuelt.
+
 ### Bruk av abstraksjon
 *(hvordan du har valgt objekter/klasser for å representere ting i spillet)*
 
 De fleste av klassene er generiske så gjenbruk av klassene er lett. 
-Rules klassen er ikke generisk, fordi den inneholder static metoder.
 TurnHandler klassen er heller ikke generisk, fordi den bruker metoder fra Token, kunne gjort det på en annen måte, men frister ikke.
 
 Selv om det er litt teit at AI har en T som extends Token, så gjør jeg dette så AbstractPlayer fortsatt kan være generisk.

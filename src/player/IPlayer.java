@@ -14,7 +14,7 @@ public interface IPlayer<T> {
 	 */
 	boolean isAi();
 	/**
-	 * Calculates a move
+	 * Calculate a move
 	 * 
 	 * @param board
 	 * @return x coordinate to place token

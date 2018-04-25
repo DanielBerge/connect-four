@@ -11,14 +11,19 @@ import grid.MyGrid;
 
 public class GridTest {
 	Random random = new Random();
-
+	/**
+	 * Checks if grid is constructed with the right dimensions
+	 */
 	@Test
 	public void constructTest1() {
 		IGrid<Token> grid = new MyGrid<>(11, 17, Token.BLANK);
 		assertEquals(11, grid.getWidth());
 		assertEquals(17, grid.getHeight());
 	}
-
+	/**
+	 * Tests that trying to access outside of the dimensions of the grid throws an
+	 * IndexOutOfBoundsException.
+	 */
 	@Test
 	public void outOfBoundsTest1() {
 		IGrid<Token> grid = new MyGrid<>(10, 10, Token.BLANK);
@@ -59,7 +64,9 @@ public class GridTest {
 			;
 		}
 	}
-
+	/**
+	 * Tests that set and get works
+	 */
 	@Test
 	public void setGetTest1() {
 		IGrid<Token> grid = new MyGrid<>(100, 100, Token.BLANK);
@@ -70,7 +77,9 @@ public class GridTest {
 				assertEquals(Token.YELLOW, grid.get(x, y));
 			}
 	}
-
+	/**
+	 * Tests that set and get works
+	 */
 	@Test
 	public void setGetTest2() {
 		IGrid<Token> grid = new MyGrid<>(100, 100, Token.BLANK);

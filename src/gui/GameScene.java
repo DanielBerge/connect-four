@@ -18,6 +18,18 @@ public class GameScene extends Scene {
 	private Text txt;
 	private Group g;
 	private Circle c;
+	/**
+	 * Make scene
+	 * Set cursor
+	 * Print scene
+	 * Make text for turn-handling
+	 * 
+	 * @param g group
+	 * @param x width
+	 * @param y height
+	 * @param color of background
+	 * @param board (Which board to play the game)
+	 */
 
 	public GameScene(Group g, double x, double y, Paint color, IBoard<Token> board) {
 		super(g, x, y, color);
@@ -31,8 +43,8 @@ public class GameScene extends Scene {
 		g.getChildren().add(txt);
 	}
 	/**
-	 * Fjerner alle objects som ligger på scene, 
-	 * før den printer ut grafikken og lager buttons på nytt.
+	 * Remove all objects from scene
+	 * Make new buttons and print all instances
 	 */
 	public void printScene() {
 		g.getChildren().removeAll(); 
@@ -50,7 +62,8 @@ public class GameScene extends Scene {
 	}
 	
 	/**
-	 * Lager buttons over alle kolonnene
+	 * Make button for all columns
+	 * Add eventlisteners for all buttons
 	 */
 	private void makeButtons() {
 		Button b1 = new Button();

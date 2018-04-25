@@ -2,14 +2,16 @@ package game;
 
 import board.IBoard;
 
-public class Rules<T> {
+public class Rule<T> {
 	/**
+	 * Iterate trough every element in grid, 
+	 * and check directions if game is won
 	 * 
 	 * @param board
-	 * @param t
-	 * @return
+	 * @param t (player)
+	 * @return if game is won or not by "t"
 	 */
-	public boolean hasWonFour(IBoard<T> board, Token t) {
+	public boolean hasWonFour(IBoard<T> board, T t) {
 		for(int x = 0; x < board.getWidth(); x++) {
 			for(int y = 0; y < board.getHeight(); y++) {
 				if((board.get(x, y) == t)

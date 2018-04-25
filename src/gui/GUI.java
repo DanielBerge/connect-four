@@ -1,5 +1,6 @@
 package gui;
 
+import game.ITurnHandler;
 import game.Token;
 import game.TurnHandler;
 import javafx.application.Application;
@@ -13,9 +14,9 @@ import player.IPlayer;
 public class GUI extends Application {
 	private static GameScene game;
 	private static Group gameGroup = new Group();
-	private static TurnHandler handler;
+	private static ITurnHandler handler;
 	/**
-	 * Setter opp selve vinduet
+	 * Initializes the window
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -26,10 +27,11 @@ public class GUI extends Application {
 		primaryStage.show();
 	}
 	/**
+	 * Start game
 	 * 
-	 * @param p1
-	 * @param p2
-	 * @return Scenen spillet skal spilles på
+	 * @param p1 (Player 1, human)
+	 * @param p2 (Player 2, human or AI)	
+	 * @return the scene of the game
 	 */
 	protected static Scene startGame(IPlayer<Token> p1, IPlayer<Token> p2) {
 		handler = new TurnHandler(p1, p2);
@@ -38,8 +40,7 @@ public class GUI extends Application {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * @return current game scene
 	 */
 	public static GameScene getGameScene() {
 		return game;
@@ -47,9 +48,9 @@ public class GUI extends Application {
 	
 	/**
 	 * 
-	 * @return
+	 * @return current handler for turns.
 	 */
-	public static TurnHandler getHandler() {
+	public static ITurnHandler getHandler() {
 		return handler;
 	}
 	

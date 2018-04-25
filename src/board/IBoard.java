@@ -13,16 +13,26 @@ public interface IBoard<T> extends IGrid<T> {
 	boolean placeToken(int x, T t);
 	/**
 	 * Iterate trough every element in grid, 
-	 * if defaultelement exists return false, 
+	 * if default element exists return false, 
 	 * else return true
 	 * 
 	 * @return if board is full or not
 	 */
 	boolean isFull();
 	/**
-	 * 
 	 * @return default element of board
 	 */
 	T getDefaultElem();
+	/**
+	 * Copy every element of board into another
+	 * 
+	 * @return copy of board
+	 */
 	IBoard<T> copy();
+	/**
+	 * Check every element if default
+	 * 
+	 * @return true if empty, false if contains elements
+	 */
+	boolean isEmpty();
 }

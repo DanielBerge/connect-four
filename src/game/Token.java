@@ -14,11 +14,15 @@ public class Token {
 		this.color = color;
 		this.name = name;
 	}
-
+	/**
+	 * @return color of token
+	 */
 	public Color getColor() {
 		return color;
 	}
-
+	/**
+	 * @return name of token
+	 */
 	public String getName() {
 		return name;
 	}

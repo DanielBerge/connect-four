@@ -10,17 +10,24 @@ import player.Human;
 import player.IPlayer;
 
 class PlayerTest {
-
+	/**
+	 * Checks that the get methods returns token.
+	 * Checks that player isAi equals false
+	 */
 	@Test
-	void getTokenTest() {
+	void getTokenHumanTest() {
 		IPlayer<Token> player = new Human<>(Token.RED);
 		assertEquals(Token.RED, player.getToken());
 		assertFalse(player.isAi());
 	}
-
+	/**
+	 * Checks that the get methods returns token.
+	 * Checks that player isAi equals true
+	 */
 	@Test
-	void AITest() {
+	void GetTokenAITest() {
 		IPlayer<Token> ai = new AI<>(Token.YELLOW);
+		assertEquals(Token.YELLOW, ai.getToken());
 		assertTrue(ai.isAi());
 	}
 

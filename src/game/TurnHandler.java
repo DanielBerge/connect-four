@@ -7,7 +7,7 @@ import board.IBoard;
 import gui.GUI;
 import player.IPlayer;
 
-public class TurnHandler {
+public class TurnHandler implements ITurnHandler {
 	private int width = 7;
 	private int height = 6;
 	private IPlayer<Token> red;
@@ -16,7 +16,13 @@ public class TurnHandler {
 	private Random r = new Random();
 	private boolean won = false;
 	private IBoard<Token> board = new Board<>(width, height, Token.BLANK);
-
+	/**
+	 * Randomly choose turn
+	 * If AI, do AI move.
+	 * 
+	 * @param p1 (AI or human 
+	 * @param p2
+	 */
 	public TurnHandler(IPlayer<Token> p1, IPlayer<Token> p2) {
 		red = p1;
 		yellow = p2;
@@ -34,6 +40,7 @@ public class TurnHandler {
 		}
 	}
 
+	@Override
 	public void turn() {
 		GUI.getGameScene().printScene();
 		if (checkWin())
@@ -60,12 +67,12 @@ public class TurnHandler {
 			GUI.getGameScene().printScene();
 			turn = red;
 		}
-
 		GUI.getGameScene().updateText(turn.getToken().getName() + "'s turn");
 	}
 
-	private boolean checkWin() {
-		Rules<Token> rule = new Rules<>();
+	@Override
+	public boolean checkWin() {
+		Rule<Token> rule = new Rule<>();
 		if (rule.hasWonFour(board, turn.getToken())) {
 			GUI.getGameScene().updateText(turn.getToken().getName() + " WON!");
 			GUI.getGameScene().printScene();
@@ -75,9 +82,10 @@ public class TurnHandler {
 		return false;
 	}
 
-	public void clicked(int i) {
+	@Override
+	public void clicked(int x) {
 		if (!won) {
-			if (board.placeToken(i, turn.getToken())) {
+			if (board.placeToken(x, turn.getToken())) {
 				GUI.getGameScene().printScene();
 				turn();
 			} else {
@@ -90,10 +98,12 @@ public class TurnHandler {
 		}
 	}
 
+	@Override
 	public IPlayer<Token> getTurn() {
 		return turn;
 	}
 
+	@Override
 	public IBoard<Token> getBoard() {
 		return board;
 	}

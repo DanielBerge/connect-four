@@ -17,6 +17,19 @@ import player.IPlayer;
 public class StartScene extends Scene {
 	private Button start;
 	private Button startai;
+	/**
+	 * Make scene
+	 * Add stylesheet
+	 * Make players for games
+	 * 
+	 * Start AI or Human game
+	 * 
+	 * @param g group
+	 * @param x width
+	 * @param y height
+	 * @param color for background
+	 * @param primaryStage
+	 */
 
 	public StartScene(Group g, double x, double y, Paint color, Stage primaryStage) {
 		super(g, x, x, color);
@@ -32,6 +45,11 @@ public class StartScene extends Scene {
 		});
 	}
 	/**
+	 * Make text for header
+	 * Make button for human game
+	 * Make button for AI game
+	 * 
+	 * Add all instances to group
 	 * 
 	 * @param g group to add the instances
 	 */
