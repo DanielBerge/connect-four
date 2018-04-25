@@ -32,7 +32,7 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 ## Oversikt
 *(oversikt over koden din og det du har gjort)*
 ### Bruk
-* For å starte programmet kjør: `fyll.inn.her`
+* For å starte programmet kjør: `GUI` [GUI] (src/gui/GUI.java)
 
 ## Designvalg
 *(hvordan du har valgt å løse oppgaven)*
