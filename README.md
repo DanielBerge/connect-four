@@ -23,11 +23,11 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
    * [x] jeg har gitt tilbakemelding underveis til @pda008, ...
 * Sjekkliste:
    * [x] Kjørbart Fire på Rad-spill
-   * [ ] Forklart designvalg, hvordan koden er organisert, abstraksjon, og andre ting 
-   * [ ] Tester
+   * [x] Forklart designvalg, hvordan koden er organisert, abstraksjon, og andre ting 
+   * [x] Tester
    * [ ] Dokumentasjon (JavaDoc, kommentarer, diagrammer, README, etc.)
-   * [ ] Fornuftige navn på klasser, interfaces, metoder og variabler
-   * [ ] Fornuftige abstraksjoner og innkapsling (bruk av klasser, interface, metoder, etc.)
+   * [x] Fornuftige navn på klasser, interfaces, metoder og variabler
+   * [x] Fornuftige abstraksjoner og innkapsling (bruk av klasser, interface, metoder, etc.)
 
 ## Oversikt
 *(oversikt over koden din og det du har gjort)*
@@ -36,23 +36,36 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 
 ## Designvalg
 *(hvordan du har valgt å løse oppgaven)*
+Har brukt JavaFx til å lage GUI, der man kan velge om man vil spille mot en annen person eller spille mot en AI.
+Har brukt CSS for å lage pene knapper for startmenyen. Og for å skjule knappene i selve spillet.
+Har laget spillet ganske modulært, det er mange klasser, som er navngitt så det er lett å forstå hva de gjør. Kunne hatt mindre klasser, men da hadde det ikke vært like modulært.
 
-Lager ikke tester for GameScene, StartScene og GUI, fordi dette er 
-for det meste grafikk, som er bedre å teste visuelt.
 
 ### Bruk av abstraksjon
 *(hvordan du har valgt objekter/klasser for å representere ting i spillet)*
 
-De fleste av klassene er generiske så gjenbruk av klassene er lett. 
-TurnHandler klassen er heller ikke generisk, fordi den bruker metoder fra Token, kunne gjort det på en annen måte, men frister ikke.
+Har brukt innkapsling så de metodene som ikke skal kalles fra alle steder er enten private eller protected.
 
-Selv om det er litt teit at AI har en T som extends Token, så gjør jeg dette så AbstractPlayer fortsatt kan være generisk.
+De fleste av klassene er generiske så gjenbruk av klassene er lett. 
+TurnHandler klassen er ikke generisk, fordi den bruker mange metoder fra Token, kunne kanskje gjort det på en annen måte, men frister ikke, for det er ikke så viktig at den er generisk, for den er ganske spesifik for dette spillet.
+
+Har brukt en abstract class til players. Der både Human og Ai extends Abstractplayer, fordi disse skal ha mange av de samme metodene og de samme feltvariablene.
+
+Har interfaces for de fleste klassene, der det er relevant. Disse er godt kommentert, så det er lett å forstå hva de gjør.
+
 
 ### Erfaring – hvilke valg viste seg å være gode / dårlige?
 *(designerfaringer – er det noe du ville gjort annerledes?)*
+Var usikker på om jeg skulle prøve å lære JavaFx for å lage GUI eller ikke, men valgte å gjøre det. Og er glad jeg gjorde det for jeg synes det gikk overraskende bra.
 
 ## Testing
 *(hvordan du har testet ting)*
+Forklart med kommentering i test-klassene.
+
+Har ikke testet TurnHandler så mye, pga det var ikke så lett å få til når det var metoder som kalte GUI, som ga mange feilmeldinger, men laget noen få simple tester som virker.
+
+Lager ikke tester for GameScene, StartScene og GUI, fordi dette er 
+for det meste grafikk, som er bedre å teste visuelt.
 
 ## Funksjonalitet, bugs
 *(hva virker / virker ikke)*
@@ -63,6 +76,11 @@ Selv om det er litt teit at AI har en T som extends Token, så gjør jeg dette s
 
 ## Evt. erfaring fra code review
 *(lærte du noe av å gå gjennom din eller andres kode?)*
+Ja, så det var mange andre måter å gjøre ting på. Vi hadde veldig forskjellig kode, så var gøy å se hvordan oppgaven kunne løses på en annen måte.
 
 ## Annet
 *(er det noe du ville gjort annerledes?)*
+Brukte mye tid på å lære hvordan man brukte JavaFx, så hadde vært en fordel å kunne det fra før av, men nå som jeg kan det
+bruker jeg det gjerne igjen.
+
+Skulle gjerne laget en bedre AI, men fikk det ikke helt til.
