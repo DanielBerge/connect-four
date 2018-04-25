@@ -36,6 +36,7 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 
 ## Designvalg
 *(hvordan du har valgt å løse oppgaven)*
+
 Har brukt JavaFx til å lage GUI, der man kan velge om man vil spille mot en annen person eller spille mot en AI.
 Har brukt CSS for å lage pene knapper for startmenyen. Og for å skjule knappene i selve spillet.
 Har laget spillet ganske modulært, det er mange klasser, som er navngitt så det er lett å forstå hva de gjør. Kunne hatt mindre klasser, men da hadde det ikke vært like modulært.
@@ -56,10 +57,12 @@ Har interfaces for de fleste klassene, der det er relevant. Disse er godt kommen
 
 ### Erfaring – hvilke valg viste seg å være gode / dårlige?
 *(designerfaringer – er det noe du ville gjort annerledes?)*
+
 Var usikker på om jeg skulle prøve å lære JavaFx for å lage GUI eller ikke, men valgte å gjøre det. Og er glad jeg gjorde det for jeg synes det gikk overraskende bra.
 
 ## Testing
 *(hvordan du har testet ting)*
+
 Forklart med kommentering i test-klassene.
 
 Har ikke testet TurnHandler så mye, pga det var ikke så lett å få til når det var metoder som kalte GUI, som ga mange feilmeldinger, men laget noen få simple tester som virker.
@@ -71,15 +74,18 @@ for det meste grafikk, som er bedre å teste visuelt.
 *(hva virker / virker ikke)*
 
 #### Bugs
-* "It's not a bug, it's a feature"
+
+"It's not a bug, it's a feature"
 
 
 ## Evt. erfaring fra code review
 *(lærte du noe av å gå gjennom din eller andres kode?)*
+
 Ja, så det var mange andre måter å gjøre ting på. Vi hadde veldig forskjellig kode, så var gøy å se hvordan oppgaven kunne løses på en annen måte.
 
 ## Annet
 *(er det noe du ville gjort annerledes?)*
+
 Brukte mye tid på å lære hvordan man brukte JavaFx, så hadde vært en fordel å kunne det fra før av, men nå som jeg kan det
 bruker jeg det gjerne igjen.
 
