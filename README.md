@@ -17,15 +17,15 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
    
 # Fyll inn egne svar/beskrivelse/kommentarer til prosjektet under
 * Levert av: Daniel Berge (dbe015)
-* [ ] hele semesteroppgaven er ferdig og klar til retting!
+* [x] hele semesteroppgaven er ferdig og klar til retting!
 * Code review:
-   * [x] jeg har fått tilbakemelding underveis fra @pda008, ...
-   * [x] jeg har gitt tilbakemelding underveis til @pda008, ...
+   * [x] jeg har fått tilbakemelding underveis fra @pda008
+   * [x] jeg har gitt tilbakemelding underveis til @pda008
 * Sjekkliste:
    * [x] Kjørbart Fire på Rad-spill
    * [x] Forklart designvalg, hvordan koden er organisert, abstraksjon, og andre ting 
    * [x] Tester
-   * [ ] Dokumentasjon (JavaDoc, kommentarer, diagrammer, README, etc.)
+   * [x] Dokumentasjon (JavaDoc, kommentarer, diagrammer, README, etc.)
    * [x] Fornuftige navn på klasser, interfaces, metoder og variabler
    * [x] Fornuftige abstraksjoner og innkapsling (bruk av klasser, interface, metoder, etc.)
 
