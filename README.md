@@ -65,7 +65,8 @@ Var usikker på om jeg skulle prøve å lære JavaFx for å lage GUI eller ikke,
 
 Forklart med kommentering i test-klassene.
 
-Har ikke testet TurnHandler så mye, pga det var ikke så lett å få til når det var metoder som kalte GUI, som ga mange feilmeldinger, men laget noen få simple tester som virker.
+Har ikke testet TurnHandler så mye, pga det var ikke så lett å få til når det var metoder som kalte GUI, som ga mange feilmeldinger, men laget noen få simple tester som virker. 
+Kunne ha fikset dette ved å gjøre metodene ikke statiske, og lage et objekt av gui klassen i testene, men blir litt rotete så valgte å ikke gjøre det.
 
 Lager ikke tester for GameScene, StartScene og GUI, fordi dette er 
 for det meste grafikk, som er bedre å teste visuelt.
