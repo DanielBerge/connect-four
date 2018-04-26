@@ -32,9 +32,7 @@ public class AI<T extends Token> extends AbstractPlayer<T> {
 				return x;
 			}
 		}
-		
-		//Sjekker om den andre spilleren kan vinne, så den kan stoppes
-		//for(int x = 0; x)
+
 
 		return r.nextInt(tboard.getWidth());
 	}

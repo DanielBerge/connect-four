@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>game</OriginalElement>
+  <nodes>
+    <node x="112.0" y="402.0">board.Board</node>
+    <node x="0.0" y="825.0">game.TurnHandler</node>
+    <node x="473.0" y="376.0">player.Human</node>
+    <node x="794.0" y="611.0">gui.GUI</node>
+    <node x="137.0" y="0.0">grid.IGrid</node>
+    <node x="0.0" y="188.0">board.IBoard</node>
+    <node x="280.0" y="708.0">gui.StartScene</node>
+    <node x="537.0" y="695.0">gui.GameScene</node>
+    <node x="219.0" y="1034.0">game.Rule</node>
+    <node x="249.0" y="201.0">grid.MyGrid</node>
+    <node x="459.75" y="611.0">javafx.scene</node>
+    <node x="0.0" y="611.0">game.ITurnHandler</node>
+    <node x="523.25" y="0.0">player.IPlayer</node>
+    <node x="523.25" y="162.0">player.AbstractPlayer</node>
+    <node x="588.0" y="324.0">player.AI</node>
+    <node x="0.0" y="1034.0">game.Token</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="board.IBoard" target="grid.IGrid">
+      <point x="0.0" y="-82.0" />
+      <point x="114.5" y="163.0" />
+      <point x="181.75" y="163.0" />
+      <point x="-44.75" y="69.0" />
+    </edge>
+    <edge source="player.AI" target="player.AbstractPlayer">
+      <point x="0.0" y="-69.0" />
+      <point x="746.0" y="299.0" />
+      <point x="688.25" y="299.0" />
+      <point x="55.0" y="56.0" />
+    </edge>
+    <edge source="gui.GameScene" target="javafx.scene">
+      <point x="0.0" y="-69.0" />
+      <point x="643.0" y="670.0" />
+      <point x="551.25" y="670.0" />
+      <point x="30.5" y="17.0" />
+    </edge>
+    <edge source="player.Human" target="player.AbstractPlayer">
+      <point x="0.0" y="-17.0" />
+      <point x="520.5" y="299.0" />
+      <point x="578.25" y="299.0" />
+      <point x="-55.0" y="56.0" />
+    </edge>
+    <edge source="board.Board" target="grid.MyGrid">
+      <point x="57.25" y="-82.0" />
+      <point x="283.75" y="377.0" />
+      <point x="338.5" y="377.0" />
+      <point x="0.0" y="69.0" />
+    </edge>
+    <edge source="player.AbstractPlayer" target="player.IPlayer">
+      <point x="0.0" y="-56.0" />
+      <point x="0.0" y="56.0" />
+    </edge>
+    <edge source="game.TurnHandler" target="game.ITurnHandler">
+      <point x="0.0" y="-82.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="board.Board" target="board.IBoard">
+      <point x="-57.25" y="-82.0" />
+      <point x="169.25" y="377.0" />
+      <point x="114.5" y="377.0" />
+      <point x="0.0" y="82.0" />
+    </edge>
+    <edge source="grid.MyGrid" target="grid.IGrid">
+      <point x="0.0" y="-69.0" />
+      <point x="338.5" y="163.0" />
+      <point x="271.25" y="163.0" />
+      <point x="44.75" y="69.0" />
+    </edge>
+    <edge source="gui.StartScene" target="javafx.scene">
+      <point x="0.0" y="-56.0" />
+      <point x="398.5" y="670.0" />
+      <point x="490.25" y="670.0" />
+      <point x="-30.5" y="17.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8" x="515.75" y="695.0" />
+  <SelectedNodes>
+    <node>game.Rule</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
