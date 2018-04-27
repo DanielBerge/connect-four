@@ -26,17 +26,20 @@ public class AI<T extends Token> extends AbstractPlayer<T> {
 			return 3;
 		}
 		
-		//Sjekker om det er mulig å vinne
 		for(int x = 0; x <tboard.getWidth(); x++) {
 			if(canPlay(x, tboard) && isWinningMove(tboard, x)) {
 				return x;
 			}
 		}
-
-
 		return r.nextInt(tboard.getWidth());
 	}
-	
+	/**
+	 * Check if this move is the winning move
+	 * 
+	 * @param board
+	 * @param x coordinate to place token
+	 * @return true if winning move
+	 */
 	private boolean isWinningMove(IBoard<T> board, int x) {
 		IBoard<T> tboard = board.copy();
 		Rule<T> rule = new Rule<>();
@@ -46,7 +49,13 @@ public class AI<T extends Token> extends AbstractPlayer<T> {
 		}
 		return false;
 	}
-	
+	/**
+	 * Check if it is a valid move
+	 * 
+	 * @param x coordinate to place token
+	 * @param board
+	 * @return true if valid
+	 */
 	private boolean canPlay(int x, IBoard<T> board) {
 		IBoard<T> tboard = board.copy();
 		return tboard.placeToken(x, t);

@@ -20,7 +20,8 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 * [x] hele semesteroppgaven er ferdig og klar til retting!
 * Code review:
    * [x] jeg har fått tilbakemelding underveis fra @pda008
-   * [x] jeg har gitt tilbakemelding underveis til @pda008
+   * [x] jeg har gitt tilbakemelding underveis til @pda008, @jdy005
+
 * Sjekkliste:
    * [x] Kjørbart Fire på Rad-spill
    * [x] Forklart designvalg, hvordan koden er organisert, abstraksjon, og andre ting 
