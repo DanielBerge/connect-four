@@ -32,6 +32,8 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 
 ## Oversikt
 *(oversikt over koden din og det du har gjort)*
+![](Klassediagram.PNG)
+
 ### Bruk
 * For å starte programmet kjør: [GUI] (src/gui/GUI.java)
 

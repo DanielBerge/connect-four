@@ -32,5 +32,9 @@ public interface ITurnHandler {
 	 * @return current board of game
 	 */
 	IBoard<Token> getBoard();
+	/**
+	 * Tries to place token until it can
+	 */
+	void aiMove();
 
 }

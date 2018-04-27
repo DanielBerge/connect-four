@@ -31,10 +31,7 @@ public class TurnHandler implements ITurnHandler {
 		} else {
 			turn = yellow;
 			if (yellow.isAi()) {
-				int i = yellow.getMove(board);
-				while (!board.placeToken(i, turn.getToken())) {
-					i = yellow.getMove(board);
-				}
+				aiMove();
 			}
 			turn = red;
 		}
@@ -58,10 +55,7 @@ public class TurnHandler implements ITurnHandler {
 		}
 
 		if (yellow.isAi()) {
-			int i = yellow.getMove(board);
-			while (!board.placeToken(i, turn.getToken())) {
-				i = yellow.getMove(board);
-			}
+			aiMove();
 			if (checkWin())
 				return;
 			GUI.getGameScene().printScene();
@@ -90,11 +84,18 @@ public class TurnHandler implements ITurnHandler {
 				turn();
 			} else {
 				GUI.getGameScene().printScene();
-				GUI.getGameScene()
-						.updateText("Column full, still " + turn.getToken().getName().toLowerCase() + "'s turn");
+				GUI.getGameScene().updateText("Column full, still " + turn.getToken().getName().toLowerCase() + "'s turn");
 			}
 		} else {
 			GUI.getGameScene().printScene();
+		}
+	}
+	
+	@Override
+	public void aiMove() {
+		int i = yellow.getMove(board);
+		while (!board.placeToken(i, turn.getToken())) {
+			i = yellow.getMove(board);
 		}
 	}
 
