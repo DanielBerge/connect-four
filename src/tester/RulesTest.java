@@ -18,11 +18,13 @@ class RulesTest {
 	 */
 	@Test
 	void RuleTest() {
-		IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
-		Rule<Token> rule = new Rule<>();
-		for (int i = 0; i < 4; i++)
-			board.placeToken(0, Token.RED);
-		assertTrue(rule.hasWonFour(board, Token.RED));
+		for (int i = 0; i < 100; i++) {
+			IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
+			Rule<Token> rule = new Rule<>();
+			for (int x = 0; x < 4; x++)
+				board.placeToken(0, Token.RED);
+			assertTrue(rule.hasWonFour(board, Token.RED));
+		}
 	}
 
 	/**
@@ -32,11 +34,13 @@ class RulesTest {
 	 */
 	@Test
 	void RuleTest2() {
-		IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
-		Rule<Token> rule = new Rule<>();
-		for (int i = 0; i < 4; i++)
-			board.placeToken(i, Token.YELLOW);
-		assertTrue(rule.hasWonFour(board, Token.YELLOW));
+		for (int i = 0; i < 100; i++) {
+			IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
+			Rule<Token> rule = new Rule<>();
+			for (int x = 0; x < 4; x++)
+				board.placeToken(x, Token.YELLOW);
+			assertTrue(rule.hasWonFour(board, Token.YELLOW));
+		}
 	}
 
 	/** 
@@ -44,11 +48,13 @@ class RulesTest {
 	 */
 	@Test
 	void RuleTest3() {
-		IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
-		Rule<Token> rule = new Rule<>();
-		for (int i = 0; i < 4; i++)
-			board.set(i, i, Token.RED);
-		assertTrue(rule.hasWonFour(board, Token.RED));
+		for (int i = 0; i < 100; i++) {
+			IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
+			Rule<Token> rule = new Rule<>();
+			for (int x = 0; x < 4; x++)
+				board.set(x, x, Token.RED);
+			assertTrue(rule.hasWonFour(board, Token.RED));
+		}
 	}
 
 	/**
@@ -56,11 +62,13 @@ class RulesTest {
 	 */
 	@Test
 	void RuleTest4() {
-		IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
-		Rule<Token> rule = new Rule<>();
-		for (int i = 0; i < 4; i++)
-			board.set(i, 3 - i, Token.YELLOW);
-		assertTrue(rule.hasWonFour(board, Token.YELLOW));
+		for (int i = 0; i < 100; i++) {
+			IBoard<Token> board = new Board<>(4, 4, Token.BLANK);
+			Rule<Token> rule = new Rule<>();
+			for (int x = 0; x < 4; x++)
+				board.set(x, 3 - x, Token.YELLOW);
+			assertTrue(rule.hasWonFour(board, Token.YELLOW));
+		}
 	}
 
 }
