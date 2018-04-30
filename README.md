@@ -19,7 +19,7 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese op
 * Levert av: Daniel Berge (dbe015)
 * [x] hele semesteroppgaven er ferdig og klar til retting!
 * Code review:
-   * [x] jeg har fått tilbakemelding underveis fra @pda008
+   * [x] jeg har fått tilbakemelding underveis fra @pda008, @rix004
    * [x] jeg har gitt tilbakemelding underveis til @pda008, @jdy005, @rix004
 
 * Sjekkliste:
