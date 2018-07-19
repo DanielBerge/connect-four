@@ -5,7 +5,7 @@ import board.IBoard;
 import game.Rule;
 import game.Token;
 
-public class AI<T extends Token> extends AbstractPlayer<T> {
+public class AI<T> extends AbstractPlayer<T> {
 	private Random r = new Random();
 	
 	public AI(T t) {
