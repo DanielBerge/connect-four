@@ -1,13 +1,15 @@
 package tester;
 
-import static org.junit.Assert.*;
 
 import java.util.Random;
-import org.junit.Test;
 
 import game.Token;
 import grid.IGrid;
 import grid.MyGrid;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class GridTest {
 	Random random = new Random();
