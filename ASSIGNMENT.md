@@ -23,7 +23,7 @@ Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md).
 ![](Klassediagram.PNG)
 
 ### Bruk
-* For å starte programmet kjør: [GUI] (src/gui/GUI.java)
+* For å starte programmet kjør: [GUI](src/gui/GUI.java)
 
 ## Designvalg
 *(hvordan du har valgt å løse oppgaven)*
