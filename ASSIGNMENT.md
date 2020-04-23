@@ -4,23 +4,11 @@
 * **README**
 * [Oppgavetekst](SEM-2.md)
 
-Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md). Du kan også [lese oppgaven online](https://retting.ii.uib.no/inf101.v18.oppgaver/inf101.v18.sem2/blob/master/SEM-2.md)
+Dette prosjektet inneholder [Semesteroppgave 2](SEM-2.md).
 
-**Innleveringsfrist:**
-* Hele oppgaven skal være ferdig til **fredag 27. april kl. 2359** ([AoE](https://www.timeanddate.com/worldclock/fixedtime.html?msg=4&iso=20180427T2359&p1=3399))
-* [Ekstra tips til innlevering](https://retting.ii.uib.no/inf101/inf101.v18/wikis/innlevering)
-
-**Utsettelse:** Hvis du trenger forlenget frist er det mulig å be om det (spør gruppeleder – evt. foreleser/assistenter hvis det er en spesiell situasjon). Hvis du ber om utsettelse bør du være i gang (ha gjort litt ting, og pushet) før fristen
-   * En dag eller to går greit uten begrunnelse.
-   * Eksamen er relativt tidlig i år, så vi vil helst unngå lange utsettelser.
-   * Om det er spesielle grunner til at du vil trenge lengre tid, så er det bare å ta kontakt, så kan vi avtale noe. Ta også kontakt om du [trenger annen tilrettelegging](http://www.uib.no/student/49241/trenger-du-tilrettelegging-av-ditt-studiel%C3%B8p). 
    
 # Fyll inn egne svar/beskrivelse/kommentarer til prosjektet under
 * Levert av: Daniel Berge (dbe015)
-* [x] hele semesteroppgaven er ferdig og klar til retting!
-* Code review:
-   * [x] jeg har fått tilbakemelding underveis fra @pda008, @rix004
-   * [x] jeg har gitt tilbakemelding underveis til @pda008, @jdy005, @rix004
 
 * Sjekkliste:
    * [x] Kjørbart Fire på Rad-spill
@@ -56,41 +44,3 @@ TurnHandler klassen er ikke generisk, fordi den bruker mange metoder fra Token, 
 Har brukt en abstract class til players. Der både Human og Ai extends Abstractplayer, fordi disse skal ha mange av de samme metodene og de samme feltvariablene.
 
 Har interfaces for de fleste klassene, der det er relevant. Disse er godt kommentert, så det er lett å forstå hva de gjør.
-
-
-### Erfaring – hvilke valg viste seg å være gode / dårlige?
-*(designerfaringer – er det noe du ville gjort annerledes?)*
-
-Var usikker på om jeg skulle prøve å lære JavaFx for å lage GUI eller ikke, men valgte å gjøre det. Og er glad jeg gjorde det for jeg synes det gikk overraskende bra.
-
-## Testing
-*(hvordan du har testet ting)*
-
-Forklart med kommentering i test-klassene.
-
-Har ikke testet TurnHandler så mye, pga det var ikke så lett å få til når det var metoder som kalte GUI, som ga mange feilmeldinger, men laget noen få simple tester som virker. 
-Kunne ha fikset dette ved å gjøre metodene ikke statiske, og lage et objekt av gui klassen i testene, men blir litt rotete så valgte å ikke gjøre det.
-
-Lager ikke tester for GameScene, StartScene og GUI, fordi dette er 
-for det meste grafikk, som er bedre å teste visuelt.
-
-## Funksjonalitet, bugs
-*(hva virker / virker ikke)*
-
-#### Bugs
-
-"It's not a bug, it's a feature"
-
-
-## Evt. erfaring fra code review
-*(lærte du noe av å gå gjennom din eller andres kode?)*
-
-Ja, så det var mange andre måter å gjøre ting på. Vi hadde veldig forskjellig kode, så var gøy å se hvordan oppgaven kunne løses på en annen måte.
-
-## Annet
-*(er det noe du ville gjort annerledes?)*
-
-Brukte mye tid på å lære hvordan man brukte JavaFx, så hadde vært en fordel å kunne det fra før av, men nå som jeg kan det
-bruker jeg det gjerne igjen.
-
-Skulle gjerne laget en bedre AI, men fikk det ikke helt til.
